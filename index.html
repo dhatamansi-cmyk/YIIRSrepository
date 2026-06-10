@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YIIRS Field Study — School Visit Repository</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4efe6;
+    --paper-2:#efe8da;
+    --ink:#1f2421;
+    --ink-soft:#4a514b;
+    --line:#d9d0bf;
+    --teal:#0d5c54;
+    --teal-deep:#08423c;
+    --terra:#bc5a35;
+    --terra-soft:#d98a5f;
+    --gold:#c69214;
+    --ok:#2f7d4f;
+    --warn:#b8860b;
+    --crit:#b23b2e;
+    --crit-bg:#f6e3df;
+    --ok-bg:#e3efe5;
+    --warn-bg:#f5ecd6;
+    --card:#fbf8f1;
+    --shadow:0 1px 2px rgba(31,36,33,.04),0 8px 24px rgba(31,36,33,.06);
+    --shadow-lg:0 2px 6px rgba(31,36,33,.06),0 26px 60px rgba(31,36,33,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Hanken Grotesk',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+  /* grain overlay */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.4;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+  }
+  .mono{font-family:'JetBrains Mono',monospace}
+  .serif{font-family:'Fraunces',serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  /* ============ TOP BAR ============ */
+  .topbar{
+    border-bottom:1px solid var(--line);
+    background:rgba(244,239,230,.9);
+    backdrop-filter:blur(8px);
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em}
+  .brand .mark{
+    width:30px;height:30px;border-radius:7px;background:var(--teal);
+    display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-weight:700;font-size:17px;
+  }
+  .brand small{display:block;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .topbar .tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+
+  .demo-note{
+    background:var(--teal-deep);color:#f4efe6;font-size:12.5px;text-align:center;padding:7px 16px;
+    letter-spacing:.02em;
+  }
+  .demo-note b{color:var(--gold)}
+
+  /* ============ HERO ============ */
+  .hero{padding:64px 0 40px;position:relative;overflow:hidden}
+  .hero .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--terra);margin-bottom:20px;display:flex;align-items:center;gap:12px;
+  }
+  .hero .eyebrow::before{content:"";width:38px;height:1px;background:var(--terra)}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:600;font-size:clamp(38px,6vw,68px);line-height:1.02;
+    letter-spacing:-.015em;max-width:14ch;margin-bottom:22px;
+  }
+  .hero h1 em{font-style:italic;color:var(--teal)}
+  .hero p.lede{font-size:18px;color:var(--ink-soft);max-width:60ch}
+
+  .statstrip{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);box-shadow:var(--shadow);
+  }
+  .statstrip .s{padding:24px 26px;border-right:1px solid var(--line)}
+  .statstrip .s:last-child{border-right:none}
+  .statstrip .n{font-family:'Fraunces',serif;font-size:40px;font-weight:600;line-height:1;color:var(--teal-deep)}
+  .statstrip .l{font-size:12.5px;color:var(--ink-soft);margin-top:8px;letter-spacing:.02em}
+
+  /* ============ FILTERS ============ */
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin:64px 0 22px;flex-wrap:wrap;gap:12px}
+  .section-head h2{font-family:'Fraunces',serif;font-size:30px;font-weight:600;letter-spacing:-.01em}
+  .section-head .sub{font-size:13px;color:var(--ink-soft);font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+  .chip{
+    font-size:13px;font-weight:500;padding:8px 16px;border-radius:100px;border:1px solid var(--line);
+    background:transparent;cursor:pointer;transition:.18s;color:var(--ink-soft);display:flex;align-items:center;gap:8px;
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%}
+  .chip:hover{border-color:var(--ink);color:var(--ink)}
+  .chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .chip.active .dot{box-shadow:0 0 0 2px rgba(255,255,255,.3)}
+
+  /* ============ SCHOOL GRID ============ */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-bottom:80px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;
+    box-shadow:var(--shadow);transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s;
+    display:flex;flex-direction:column;opacity:0;transform:translateY(14px);
+  }
+  .card.in{opacity:1;transform:none}
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+  .card .ph{height:172px;position:relative}
+  .card .society-badge{
+    position:absolute;top:12px;left:12px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:5px 10px;border-radius:6px;color:#fff;backdrop-filter:blur(2px);
+  }
+  .card .ribbon{
+    position:absolute;top:12px;right:12px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    padding:4px 9px;border-radius:6px;backdrop-filter:blur(2px);
+  }
+  .card .ribbon.real{background:rgba(13,92,84,.92);color:#fff}
+  .card .ribbon.sample{background:rgba(31,36,33,.55);color:#efe8da;border:1px dashed rgba(239,232,218,.5)}
+  .card .body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+  .card .loc{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--terra);text-transform:uppercase;margin-bottom:8px}
+  .card h3{font-family:'Fraunces',serif;font-size:21px;font-weight:600;line-height:1.12;margin-bottom:14px;letter-spacing:-.01em}
+  .card .mini{display:flex;gap:22px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+  .card .mini .n{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--teal-deep);line-height:1}
+  .card .mini .l{font-size:11px;color:var(--ink-soft);margin-top:3px}
+  .card .go{margin-top:14px;font-size:13px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:6px;transition:gap .2s}
+  .card:hover .go{gap:12px}
+
+  /* ============ PROFILE ============ */
+  #profile{display:none}
+  .pf-back{
+    display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink-soft);
+    margin:26px 0 18px;cursor:pointer;transition:.18s;letter-spacing:.02em;
+  }
+  .pf-back:hover{color:var(--ink);gap:12px}
+
+  .pf-hero{margin-bottom:14px}
+  .pf-hero .lead-img{height:380px;border-radius:16px;position:relative;overflow:hidden}
+  .pf-cap{position:absolute;bottom:10px;left:12px;font-size:11px;color:#fff;font-family:'JetBrains Mono',monospace;letter-spacing:.04em;
+    background:rgba(20,24,22,.45);padding:4px 9px;border-radius:6px;backdrop-filter:blur(2px)}
+  .pf-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;margin-bottom:40px}
+  .pf-thumbs .ph{height:120px;border-radius:12px;position:relative;overflow:hidden;cursor:pointer;transition:.2s}
+  .pf-thumbs .ph:hover{transform:scale(1.03)}
+  .pf-quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:2px 0 36px}
+  .pf-quotes .q{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--terra);border-radius:14px;padding:20px 22px;position:relative}
+  .pf-quotes .q p{font-family:'Fraunces',serif;font-size:16px;line-height:1.36;font-style:italic;color:var(--ink);margin-bottom:13px}
+  .pf-quotes .q .by{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--terra)}
+  #lightbox{position:fixed;inset:0;background:rgba(20,18,14,.93);display:none;align-items:center;justify-content:center;z-index:9999;padding:32px;cursor:zoom-out}
+  #lightbox.open{display:flex}
+  #lightbox .lb-inner{max-width:92vw;max-height:92vh;display:flex;flex-direction:column;align-items:center;gap:14px}
+  #lightbox img{max-width:92vw;max-height:84vh;object-fit:contain;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+  #lightbox .lb-cap{color:#f4efe6;font-family:'Hanken Grotesk',sans-serif;font-size:14px;letter-spacing:.02em;text-align:center;max-width:80vw}
+  #lightbox .lb-close{position:fixed;top:16px;right:26px;color:#f4efe6;font-size:42px;line-height:1;cursor:pointer;opacity:.85}
+
+  .pf-titleband{margin-bottom:36px}
+  .pf-titleband .society{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;padding:6px 13px;border-radius:7px;color:#fff;margin-bottom:16px}
+  .pf-titleband h1{font-family:'Fraunces',serif;font-size:clamp(30px,4.5vw,50px);font-weight:600;line-height:1.04;letter-spacing:-.015em;max-width:20ch}
+  .pf-titleband .meta{display:flex;gap:26px;margin-top:16px;flex-wrap:wrap;font-size:14px;color:var(--ink-soft)}
+  .pf-titleband .meta b{color:var(--ink);font-weight:600}
+
+  /* dashboard */
+  .dash{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-bottom:44px}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .metrics .m{background:var(--card);padding:22px 22px}
+  .metrics .m .l{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+  .metrics .m .n{font-family:'Fraunces',serif;font-size:34px;font-weight:600;color:var(--teal-deep);line-height:1}
+  .metrics .m .x{font-size:12px;color:var(--ink-soft);margin-top:6px}
+  .metrics .m .n.flag{color:var(--crit)}
+
+  .mapbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column}
+  .mapbox .l{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+  .mapbox .place{font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin-bottom:8px}
+  .mapbox svg{width:100%;flex:1;max-height:230px}
+  .mapbox .indic{font-size:10.5px;color:var(--ink-soft);font-family:'JetBrains Mono',monospace;text-align:center;margin-top:4px}
+
+  /* key insights */
+  .insights{background:var(--teal-deep);color:#f4efe6;border-radius:20px;padding:42px 46px;margin-bottom:48px;position:relative;overflow:hidden}
+  .insights::after{content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle,rgba(198,146,20,.22),transparent 70%)}
+  .insights .ttl{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .insights h2{font-family:'Fraunces',serif;font-size:30px;font-weight:600;margin-bottom:28px;letter-spacing:-.01em}
+  .insights ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:22px 40px;position:relative;z-index:1}
+  .insights li{display:flex;gap:16px;align-items:flex-start}
+  .insights li .num{font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:var(--gold);border:1px solid rgba(198,146,20,.5);
+    min-width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;margin-top:2px}
+  .insights li p{font-size:15px;line-height:1.5;color:#e8e1d3}
+
+  /* accordion */
+  .acc-head{font-family:'Fraunces',serif;font-size:26px;font-weight:600;margin-bottom:6px}
+  .acc-sub{font-size:13px;color:var(--ink-soft);margin-bottom:22px;font-family:'JetBrains Mono',monospace;letter-spacing:.03em}
+  .acc{display:flex;flex-direction:column;gap:14px;padding-bottom:90px}
+  .panel{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;transition:box-shadow .25s,border-color .25s}
+  .panel.open{box-shadow:var(--shadow);border-color:#cabfa9}
+  .panel-btn{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:22px 24px;display:flex;
+    align-items:center;gap:18px;font-family:inherit}
+  .panel-btn .icon{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;background:var(--paper-2)}
+  .panel-btn .icon svg{width:21px;height:21px}
+  .panel-btn .ti{flex:1}
+  .panel-btn .ti h3{font-family:'Fraunces',serif;font-size:20px;font-weight:600;letter-spacing:-.005em}
+  .panel-btn .ti p{font-size:13px;color:var(--ink-soft);margin-top:2px}
+  .status{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:100px;white-space:nowrap}
+  .status.ok{background:var(--ok-bg);color:var(--ok)}
+  .status.warn{background:var(--warn-bg);color:var(--warn)}
+  .status.crit{background:var(--crit-bg);color:var(--crit)}
+  .chev{transition:transform .3s;color:var(--ink-soft);flex-shrink:0}
+  .panel.open .chev{transform:rotate(180deg)}
+  .panel-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s cubic-bezier(.3,.8,.3,1)}
+  .panel.open .panel-body{grid-template-rows:1fr}
+  .panel-body>div{overflow:hidden}
+  .panel-inner{padding:4px 24px 26px 84px}
+  .panel-inner .note{margin-top:10px;font-size:12.5px;line-height:1.5;color:#7a7166;font-style:italic}
+  @media(max-width:640px){.panel-inner{padding:4px 22px 24px 22px}}
+
+  .bullets{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:18px}
+  .bullets li{position:relative;padding-left:22px;font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+  .bullets li b{color:var(--ink);font-weight:600}
+  .bullets li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:2px;background:var(--terra);transform:rotate(45deg)}
+
+  /* infra grid */
+  .infra{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:6px}
+  .infra .row{display:flex;align-items:center;gap:11px;padding:11px 14px;border-radius:10px;background:var(--paper-2);font-size:13.5px}
+  .infra .row .tick{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;color:#fff;font-size:11px;font-weight:700}
+  .infra .row.ok .tick{background:var(--ok)} .infra .row.warn .tick{background:var(--warn)} .infra .row.crit .tick{background:var(--crit)}
+  .infra .row .lbl{flex:1;font-weight:500}
+  .infra .row .v{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+  .infra .row.crit{background:var(--crit-bg)} .infra .row.crit .lbl{color:var(--crit)}
+  .infra .row.na{opacity:.6} .infra .row.na .tick{background:var(--ink-soft)} .infra .row.na .lbl{color:var(--ink-soft)} .infra .row.na .v{font-style:italic;opacity:.85}
+
+  /* mini table */
+  .tbl{width:100%;border-collapse:collapse;margin:6px 0 18px;font-size:14px}
+  .tbl th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);
+    font-weight:600;padding:0 14px 9px;border-bottom:1px solid var(--line)}
+  .tbl td{padding:11px 14px;border-bottom:1px solid var(--line)}
+  .tbl td:first-child{font-weight:500}
+  .tbl .num{font-family:'JetBrains Mono',monospace;text-align:right}
+  .tbl .vac{color:var(--crit);font-weight:700}
+  .tbl tr:last-child td{border-bottom:none}
+  .tbl tfoot td{font-weight:700;border-top:2px solid var(--line);border-bottom:none}
+
+  /* reservation bar */
+  .resv{margin:8px 0 16px;padding:18px;background:var(--paper-2);border-radius:12px}
+  .resv .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;font-size:13.5px}
+  .resv .top b{font-family:'Fraunces',serif;font-size:24px}
+  .resv .track{height:14px;border-radius:100px;background:#e3dccd;position:relative;overflow:hidden}
+  .resv .fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--teal-deep))}
+  .resv .target{position:absolute;top:-5px;bottom:-5px;width:2px;background:var(--terra)}
+  .resv .legend{display:flex;justify-content:space-between;margin-top:9px;font-size:11.5px;color:var(--ink-soft);font-family:'JetBrains Mono',monospace}
+  .cat-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .cat-pills .p{font-size:12px;padding:6px 12px;border-radius:8px;background:var(--paper-2);border:1px solid var(--line)}
+  .cat-pills .p b{font-family:'JetBrains Mono',monospace;color:var(--teal-deep)}
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .tags .t{font-size:12px;font-weight:600;padding:6px 13px;border-radius:100px;background:var(--ok-bg);color:var(--ok);border:1px solid #c7dfcb}
+  .tags .t.no{background:#efeae0;color:var(--ink-soft);border-color:var(--line);text-decoration:line-through;text-decoration-color:#bbab90}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;font-size:12.5px;color:var(--ink-soft);text-align:center;letter-spacing:.02em}
+
+  @media(max-width:880px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .statstrip{grid-template-columns:repeat(2,1fr)}
+    .statstrip .s:nth-child(2){border-right:none}
+    .pf-hero .lead-img{height:260px}
+    .dash{grid-template-columns:1fr} .insights ol{grid-template-columns:1fr} .pf-thumbs{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:560px){
+    .grid{grid-template-columns:1fr} .metrics{grid-template-columns:repeat(2,1fr)} .infra{grid-template-columns:1fr}
+    .insights{padding:30px 24px} .wrap{padding:0 18px}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-note">
+  <b>5 field visits loaded</b> &nbsp;— Chegunta &amp; Narsapur (TW), Hayathnagar (BC), Shaikhpet (SW) and Khairatabad (MW). More schools will be added as visit data comes in.
+</div>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <span class="mark">Y</span>
+      <span>YIIRS Field Study<small>School Visit Repository</small></span>
+    </div>
+    <span class="tag">BCG · Telangana · 2026</span>
+  </div>
+</div>
+
+<!-- =================== REPOSITORY VIEW =================== -->
+<main id="repository">
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Young India Integrated Residential Schools</div>
+      <h1>Field-visit assessments of <em>welfare residential schools.</em></h1>
+      <p class="lede">A consolidated record of field visits across all four welfare societies — Minority, Social, Tribal and Backward Classes. Each profile documents the school's staffing, infrastructure, enrolment and key findings from the visit.</p>
+
+      <div class="statstrip">
+        <div class="s"><div class="n" id="stat-schools">6</div><div class="l">Schools visited</div></div>
+        <div class="s"><div class="n">4</div><div class="l">Welfare societies covered</div></div>
+        <div class="s"><div class="n" id="stat-districts">6</div><div class="l">Districts</div></div>
+        <div class="s"><div class="n">55</div><div class="l">Stakeholder consultations (teachers &amp; school leaders)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The schools</h2>
+      <span class="sub" id="visit-count">// 6 of ~15 planned</span>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</main>
+
+<!-- =================== PROFILE VIEW =================== -->
+<main id="profile"><div class="wrap" id="profile-inner"></div></main>
+
+<footer>Prepared by the BCG field team · Young India Integrated Residential Schools study · Illustrative demo build</footer>
+
+<script src="schools.js"></script>
+<script>
+/* ============================================================
+   DATA MODEL
+   To add a real school, copy one object and fill in the fields.
+   society codes: MW=Minority, SW=Social, TW=Tribal, BC=Backward Classes
+   status values: "ok" | "warn" | "crit"
+   ============================================================ */
+const SOCIETIES = {
+  MW:{name:"Minority Welfare",  color:"#1d6e9c"},
+  SW:{name:"Social Welfare",    color:"#0d5c54"},
+  TW:{name:"Tribal Welfare",    color:"#8a4b1f"},
+  BC:{name:"Backward Classes Welfare", color:"#7a3a72"}
+};
+
+/* SCHOOLS data is loaded from schools.js (see <script src="schools.js"> in <head>) */
+
+/* ---- approximate stylized outline of Telangana (indicative, not to scale) ---- */
+const TG_PATH = "M138,18 L172,30 L168,58 L196,66 L190,96 L214,104 L208,130 L236,150 L262,168 L268,196 L250,214 L262,238 L236,250 L210,244 L196,266 L182,300 L150,320 L120,300 L108,268 L86,250 L96,222 L78,200 L92,172 L82,144 L104,128 L100,100 L120,86 L114,58 L130,40 Z";
+
+/* ============================================================ RENDER ============================================================ */
+const hues=[18,168,42,205,330,95]; // varied placeholder photo tones
+function phStyle(seed,scene){
+  const h=hues[seed%hues.length];
+  const h2=(h+28)%360;
+  return `background:
+    linear-gradient(135deg, hsl(${h} 42% 38%), hsl(${h2} 38% 26%));`;
+}
+function phLabel(scene){
+  return `<div class="pf-cap">${scene}</div>
+    <svg style="position:absolute;top:12px;right:12px;opacity:.55" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L19 6h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.2"/></svg>
+    <div style="position:absolute;inset:0;background:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%23ffffff' stroke-opacity='.05'/%3E%3C/svg%3E&quot;)"></div>`;
+}
+// real photos: supports a realPhotos[] array, with back-compat for single realPhoto string
+function realPhotosOf(s){return s.realPhotos || (s.realPhoto?[s.realPhoto]:null);}
+function imgCell(src,cap){return `<img src="${src}" alt="" style="width:100%;height:100%;object-fit:cover">${cap?`<div class="pf-cap">${cap}</div>`:''}`;}
+
+/* ---------- repository ---------- */
+const grid=document.getElementById('grid');
+const filters=document.getElementById('filters');
+let activeFilter='ALL';
+
+function renderFilters(){
+  const counts={ALL:SCHOOLS.length};
+  Object.keys(SOCIETIES).forEach(k=>counts[k]=SCHOOLS.filter(s=>s.society===k).length);
+  let html=`<button class="chip ${activeFilter==='ALL'?'active':''}" data-f="ALL"><span class="dot" style="background:#1f2421"></span>All schools · ${counts.ALL}</button>`;
+  Object.entries(SOCIETIES).forEach(([k,v])=>{
+    if(!counts[k])return;
+    html+=`<button class="chip ${activeFilter===k?'active':''}" data-f="${k}"><span class="dot" style="background:${v.color}"></span>${v.name} · ${counts[k]}</button>`;
+  });
+  filters.innerHTML=html;
+  filters.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{activeFilter=c.dataset.f;renderFilters();renderGrid();});
+}
+
+function renderGrid(){
+  const list=SCHOOLS.filter(s=>activeFilter==='ALL'||s.society===activeFilter);
+  grid.innerHTML=list.map((s,i)=>{
+    const soc=SOCIETIES[s.society];
+    const rps=realPhotosOf(s);
+    return `<article class="card" data-id="${s.id}">
+      <div class="ph" style="${rps?'background:#1f2421':phStyle(i)}">
+        ${rps?`<img src="${rps[0]}" alt="" style="width:100%;height:100%;object-fit:cover">`:phLabel(s.photos[0])}
+        <span class="society-badge" style="background:${soc.color}">${soc.name}</span>
+        <span class="ribbon ${s.real?'real':'sample'}">${s.real?'Field visit':'Sample'}</span>
+      </div>
+      <div class="body">
+        <div class="loc">${s.district} · ${s.constituency}</div>
+        <h3>${s.name}</h3>
+        <div class="mini">
+          <div><div class="n">${s.metrics.enrolment}</div><div class="l">Students</div></div>
+          <div><div class="n">${s.metrics.teachers}</div><div class="l">Teachers</div></div>
+          <div><div class="n">${s.metrics.vacancies}</div><div class="l">Vacancies</div></div>
+        </div>
+        <div class="go">View profile <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+    </article>`;
+  }).join('');
+  // staggered reveal
+  const cards=grid.querySelectorAll('.card');
+  cards.forEach((c,i)=>{
+    setTimeout(()=>c.classList.add('in'),60+i*70);
+    c.onclick=()=>openProfile(c.dataset.id);
+  });
+}
+
+/* ---------- profile ---------- */
+const repoView=document.getElementById('repository');
+const profView=document.getElementById('profile');
+const profInner=document.getElementById('profile-inner');
+
+const ICONS={
+  infra:'<path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-5h6v5"/>',
+  staff:'<circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 20a4.8 4.8 0 0 1 5.5-4.6"/>',
+  enrol:'<path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M7 10v5c0 1.5 2.7 3 5 3s5-1.5 5-3v-5"/><path d="M21 8v6"/>',
+  well:'<path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/>',
+  gov:'<path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-7h6v7"/><path d="M4 9h16"/>',
+  acad:'<path d="M12 7C10.3 5.6 7.4 5 4 5.5v12.5c3.4-.5 6.3.1 8 1.5 1.7-1.4 4.6-2 8-1.5V5.5C16.6 5 13.7 5.6 12 7z"/><path d="M12 7v12"/>',
+  res:'<path d="M3 18V7M3 12h12a4 4 0 0 1 4 4v2M3 18h18"/><path d="M6.5 10.5h2.5"/>',
+  food:'<path d="M4 12h16a8 8 0 0 1-16 0z"/><path d="M10 4s-1 1.5 0 3M14 4s-1 1.5 0 3"/>',
+  safe:'<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/>',
+  access:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="7.4" r="1.4"/><path d="M8.5 10h7M12 10v3.5l-1.8 4M12 13.5l1.8 4"/>',
+  girls:'<circle cx="12" cy="8.5" r="5"/><path d="M12 13.5V21M8.5 18h7"/>',
+  boys:'<circle cx="10" cy="14" r="5"/><path d="M14.5 9.5L19 5M15 5h4v4"/>',
+  parents:'<path d="M4 5h16v10H10l-4 4v-4H4z"/><path d="M8 9h8M8 12h5"/>'
+};
+function statusClass(s){return s;}
+const GENDER_NOTE={Girls:"all-girls school",Boys:"all-boys school","Co-ed":"co-educational"};
+const BUILDING_NOTE={Rented:"leased premises",Govt:"government building",Owned:"society-owned"};
+function statusLabel(s){return s==='ok'?'Adequate':s==='warn'?'Attention':'Critical';}
+
+function openProfile(id){
+  const s=SCHOOLS.find(x=>x.id===id); if(!s)return;
+  const soc=SOCIETIES[s.society];
+
+  const rps=realPhotosOf(s);
+  const cell=(idx,suf='')=> (rps&&rps[idx])
+    ? {style:'background:#1f2421', inner: imgCell(rps[idx], (s.photos[idx]||'')+suf)}
+    : {style:phStyle(idx), inner: phLabel(s.photos[idx])};
+  const L=cell(0,' · field photo'), S1=cell(1), S2=cell(2);
+  const lead=`<div class="lead-img" style="${L.style}">${L.inner}</div>`;
+  const side=`<div class="side">
+      <div class="ph" style="${S1.style}">${S1.inner}</div>
+      <div class="ph" style="${S2.style}">${S2.inner}</div>
+    </div>`;
+  const thumbs=s.photos.slice(1).map((p,i)=>{const c=cell(i+1);return `<div class="ph" style="${c.style}">${c.inner}</div>`;}).join('');
+
+  const metrics=`
+    <div class="m"><div class="l">Enrolment</div><div class="n">${s.metrics.enrolment}</div><div class="x">students in residence</div></div>
+    <div class="m"><div class="l">Cohort</div><div class="n" style="font-size:24px;line-height:1.1">${s.metrics.gender}</div><div class="x">${GENDER_NOTE[s.metrics.gender]||''}</div></div>
+    <div class="m"><div class="l">Building</div><div class="n${s.metrics.building==='Rented'?' flag':''}" style="font-size:24px;line-height:1.1">${s.metrics.building}</div><div class="x">${BUILDING_NOTE[s.metrics.building]||''}</div></div>
+    <div class="m"><div class="l">Teachers in post</div><div class="n">${s.metrics.teachers}</div><div class="x">of ${s.metrics.sanctioned} sanctioned</div></div>
+    <div class="m"><div class="l">Vacancies</div><div class="n flag">${s.metrics.vacancies}</div><div class="x">teaching posts unfilled</div></div>
+    <div class="m"><div class="l">Non-teaching</div><div class="n">${s.metrics.nonTeaching}</div><div class="x">support staff</div></div>
+    <div class="m"><div class="l">Established</div><div class="n" style="font-size:24px;line-height:1.1">${s.established}</div><div class="x">year of opening</div></div>
+    <div class="m"><div class="l">Society</div><div class="n" style="font-size:22px;line-height:1.1">${s.society}</div><div class="x">${soc.name}</div></div>`;
+
+  // map with pins (all schools faded, this one highlighted)
+  const pins=SCHOOLS.map(o=>{
+    const me=o.id===s.id;
+    return `<circle cx="${o.map.x}" cy="${o.map.y}" r="${me?7:3.4}" fill="${me?'#bc5a35':'#0d5c54'}" opacity="${me?1:.4}"/>${me?`<circle cx="${o.map.x}" cy="${o.map.y}" r="13" fill="none" stroke="#bc5a35" stroke-width="1.5" opacity=".5"><animate attributeName="r" values="9;17;9" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;0;.6" dur="2.4s" repeatCount="indefinite"/></circle>`:''}`;
+  }).join('');
+  const map=`<div class="mapbox">
+      <div class="l">Location</div>
+      <div class="place">${s.district}</div>
+      <svg viewBox="0 0 300 360" preserveAspectRatio="xMidYMid meet">
+        <path d="${TG_PATH}" fill="#e7dfce" stroke="#cabfa9" stroke-width="2"/>
+        ${pins}
+      </svg>
+      <div class="indic">Telangana · indicative position</div>
+    </div>`;
+
+  const insights=`<section class="insights">
+      <div class="ttl">What we learned</div>
+      <h2>Key insights from this visit</h2>
+      <ol>${s.insights.map((t,i)=>`<li><span class="num">${i+1}</span><p>${t}</p></li>`).join('')}</ol>
+    </section>`;
+
+  // sections
+  const panels=[
+    panel('infra','Infrastructure assessment','From the on-ground facilities form',s.infrastructure,infraBody(s.infrastructure)),
+    s.residential?panel('res','Residential complex','Hostel, dormitories and daily life',s.residential,bulletsHtml(s.residential.bullets)):'',
+    s.food?panel('food','Food & nutrition','Menu, procurement and food safety',s.food,bulletsHtml(s.food.bullets)):'',
+    panel('staff','Teaching & non-teaching staff','Sanctioned vs in-position vs vacant',s.staff,staffBody(s.staff)),
+    s.academics?panel('acad','Academics & learning','Streams, assessment and learning support',s.academics,bulletsHtml(s.academics.bullets)):'',
+    panel('enrol','Enrolment & reservation','Student profile and matrix compliance',s.enrolment,enrolBody(s.enrolment)),
+    s.disability?panel('access','Disability inclusion (CWSN)','Enrolment, accessibility and support',s.disability,bulletsHtml(s.disability.bullets)):'',
+    panel('well','Student well-being','Programmes and student support',s.wellbeing,wellBody(s.wellbeing)),
+    s.girls?panel('girls',"Girls' wellbeing & pathways",'Menstrual health, support and continuation',s.girls,bulletsHtml(s.girls.bullets)):'',
+    s.boys?panel('boys',"Boys' wellbeing & pathways",'Pathways and growing-up support',s.boys,bulletsHtml(s.boys.bullets)):'',
+    s.safeguarding?panel('safe','Child protection & safeguarding','Policy, grievance, night supervision and training',s.safeguarding,bulletsHtml(s.safeguarding.bullets)):'',
+    panel('gov','Governance','Leadership and management systems',s.governance,govBody(s.governance)),
+    s.parents?panel('parents','Parents, community & perception','Engagement, family contact and how the model is seen',s.parents,bulletsHtml(s.parents.bullets)):''
+  ].join('');
+
+  profInner.innerHTML=`
+    <div class="pf-back" id="back">← All schools</div>
+    <div class="pf-hero">${lead}</div>
+    <div class="pf-thumbs">${thumbs}</div>
+
+    <div class="pf-titleband">
+      <span class="society" style="background:${soc.color}">${soc.name} Society</span>
+      <h1>${s.name}</h1>
+      <div class="meta">
+        <span>District&nbsp; <b>${s.district}</b></span>
+        <span>Constituency&nbsp; <b>${s.constituency}</b></span>
+        <span>Established&nbsp; <b>${s.established}</b></span>
+      </div>
+    </div>
+
+    ${s.quotes?quotesBlock(s.quotes):''}
+
+    <div class="dash">
+      <div class="metrics">${metrics}</div>
+      ${map}
+    </div>
+
+    ${insights}
+
+    <div class="acc-head">Detailed assessment</div>
+    <div class="acc-sub">// tap any section to expand</div>
+    <div class="acc">${panels}</div>`;
+
+  document.getElementById('back').onclick=closeProfile;
+  // accordion behaviour
+  profInner.querySelectorAll('.panel-btn').forEach(b=>{
+    b.onclick=()=>b.closest('.panel').classList.toggle('open');
+  });
+  // open first panel by default
+  const first=profInner.querySelector('.panel'); if(first)first.classList.add('open');
+
+  // image lightbox: click hero or any thumbnail photo to expand
+  profInner.querySelectorAll('.lead-img img, .pf-thumbs .ph img').forEach(img=>{
+    img.style.cursor='zoom-in';
+    img.onclick=()=>{const cap=img.nextElementSibling&&img.nextElementSibling.classList.contains('pf-cap')?img.nextElementSibling.textContent:'';openLightbox(img.src,cap);};
+  });
+
+  repoView.style.display='none';
+  profView.style.display='block';
+  window.scrollTo({top:0,behavior:'instant'in window?'instant':'auto'});
+}
+
+function ensureLightbox(){
+  let lb=document.getElementById('lightbox');
+  if(!lb){
+    lb=document.createElement('div');
+    lb.id='lightbox';
+    lb.innerHTML='<div class="lb-close" aria-label="Close">×</div><div class="lb-inner"><img id="lb-img" src="" alt=""><div id="lb-cap" class="lb-cap"></div></div>';
+    document.body.appendChild(lb);
+    lb.addEventListener('click',()=>lb.classList.remove('open'));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open');});
+  }
+  return lb;
+}
+function openLightbox(src,cap){
+  const lb=ensureLightbox();
+  lb.querySelector('#lb-img').src=src;
+  const c=lb.querySelector('#lb-cap'); c.textContent=cap||''; c.style.display=cap?'block':'none';
+  lb.classList.add('open');
+}
+
+function panel(icon,title,sub,obj,bodyHtml){
+  return `<div class="panel">
+    <button class="panel-btn">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1f2421" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICONS[icon]}</svg></span>
+      <span class="ti"><h3>${title}</h3><p>${sub}</p></span>
+      <span class="status ${statusClass(obj.status)}">${statusLabel(obj.status)} · ${obj.summary}</span>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="panel-body"><div><div class="panel-inner">${bodyHtml}</div></div></div>
+  </div>`;
+}
+
+function bulletsHtml(arr){return `<ul class="bullets">${arr.map(b=>`<li>${b}</li>`).join('')}</ul>`;}
+function quotesBlock(qs){return `<div class="pf-quotes">${qs.map(x=>`<div class="q"><p>${x.q}</p><div class="by">— ${x.by}</div></div>`).join('')}</div>`;}
+
+function infraBody(o){
+  const rows=o.checklist.map(c=>`<div class="row ${c.status}">
+      <span class="tick">${c.status==='ok'?'✓':c.status==='warn'?'!':c.status==='crit'?'×':'–'}</span>
+      <span class="lbl">${c.item}</span><span class="v">${c.v}</span></div>`).join('');
+  return bulletsHtml(o.bullets)+`<div class="infra">${rows}</div>`;
+}
+function staffBody(o){
+  const isNum=v=>typeof v==='number';
+  const body=o.rows.map(r=>`<tr><td>${r.role}</td><td class="num">${r.sanc}</td><td class="num">${r.pos}</td><td class="num ${isNum(r.vac)&&r.vac>0?'vac':''}">${r.vac}</td></tr>`).join('');
+  const t=o.rows.reduce((a,r)=>({s:a.s+(isNum(r.sanc)?r.sanc:0),p:a.p+(isNum(r.pos)?r.pos:0),v:a.v+(isNum(r.vac)?r.vac:0)}),{s:0,p:0,v:0});
+  const partial=o.rows.some(r=>!isNum(r.sanc)||!isNum(r.pos)||!isNum(r.vac));
+  return bulletsHtml(o.bullets)+`<table class="tbl">
+    <thead><tr><th>Category</th><th style="text-align:right">Sanctioned</th><th style="text-align:right">In position</th><th style="text-align:right">Vacant</th></tr></thead>
+    <tbody>${body}</tbody>
+    <tfoot><tr><td>${partial?'Recorded subtotal':'Total'}</td><td class="num">${t.s}</td><td class="num">${t.p}</td><td class="num ${t.v>0?'vac':''}">${t.v}</td></tr></tfoot>
+  </table>${partial?`<div class="note">Some grade bands were not captured in the field form; the subtotal reflects only recorded rows.</div>`:''}<div class="note">Guest vs regular teaching staff: <b>${o.mix||'Data not available'}</b></div>`;
+}
+function enrolBody(o){
+  const cats=o.categories.map(c=>`<span class="p">${c.l} <b>${c.v}</b></span>`).join('');
+  return bulletsHtml(o.bullets)+`<div class="cat-pills">${cats}</div>`;
+}
+function wellBody(o){
+  const tags=o.programs.map(p=>`<span class="t ${p.on?'':'no'}">${p.on?'':'✕ '}${p.l}</span>`).join('');
+  return bulletsHtml(o.bullets)+`<div class="tags">${tags}</div>`;
+}
+function govBody(o){return bulletsHtml(o.bullets);}
+
+function closeProfile(){
+  profView.style.display='none';
+  repoView.style.display='block';
+}
+
+/* ---------- header stats ---------- */
+document.getElementById('stat-schools').textContent=SCHOOLS.length;
+document.getElementById('stat-districts').textContent=new Set(SCHOOLS.map(s=>s.district)).size;
+document.getElementById('visit-count').textContent=`// ${SCHOOLS.length} of ~15 planned`;
+
+renderFilters();
+renderGrid();
+</script>
+</body>
+</html>
