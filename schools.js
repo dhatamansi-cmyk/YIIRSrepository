@@ -576,8 +576,24 @@ window.SCHOOLS = [
   constituency: "Chegunta",
   established: "2014",
   map: { x: 250, y: 235 },
-  realPhotos: [],
-  photos: [],
+  realPhotos: [
+    "images/chegunta-building-exterior.jpg",
+    "images/chegunta-basketball-court.jpg",
+    "images/chegunta-dormitory.jpg",
+    "images/chegunta-dorm-handprints.jpg",
+    "images/chegunta-sports-mural.jpg",
+    "images/chegunta-kitchen.jpg",
+    "images/chegunta-science-lab.jpg"
+  ],
+  photos: [
+    "The girls' dormitory block, fronted by a basketball-player mural",
+    "The sponsored basketball court, built with the High Five partnership",
+    "Inside a dormitory — metal bunk beds, trunk boxes and ceiling fans",
+    "A hostel wall the girls made their own — handprints and farewell notes from the SSC batch",
+    "Mural of Indian women athletes — Sindhu, Mithali Raj, Mary Kom, Saina Nehwal, Ashwini Nachappa",
+    "The residential kitchen — gas burners and bulk cooking vessels",
+    "Inside a science lab — reagent shelves and glassware"
+  ],
   metrics: {
     enrolment: "520", teachers: "17", sanctioned: "24",
     vacancies: "7", nonTeaching: "19",
@@ -585,23 +601,23 @@ window.SCHOOLS = [
     building: "Govt"
   },
   insights: [
-    "<b>Sports-first model:</b> The state's only girls' sports school of its kind, drawing talent from across Telangana, with morning and evening training blocks and 3–4 dedicated coaches.",
-    "<b>Strong campus, weak digital:</b> Pucca 5-acre site with full science labs and a sponsored basketball facility, but only 10 computers, no ICT teacher and no backup power.",
-    "<b>Mental health off the radar:</b> No counsellor, and staff report girls never raise distress — a red flag in a 520-girl residential school.",
-    "<b>Nurses overburdened:</b> Two nurses carry full health responsibility for 520 girls, backed only by an annual RBSK check-up.",
-    "<b>Safeguarding gaps:</b> Strong overnight adult cover (5 staff) but no night watchman, low walls in a remote location, and no formal child-protection policy, checks or training.",
-    "<b>No disability access:</b> A new government building with no ramps or lifts — effectively inaccessible to students with physical or sensory disabilities.",
-    "<b>Comfort and dignity gaps:</b> Girls bring mattresses from home, the urinals lack partitions, and there is no shared recreation space despite a purpose-built hostel.",
-    "<b>Thin parent link:</b> Monthly PTMs exist, but girls feel disconnected from home and contact is mostly limited to homesickness."
+    "<b>A genuine sports school, selective by design:</b> the state's only girls' sports school admits on a coach-run <b>battery test</b> — height, weight, long and short jump, sprints and a chosen sport — and draws talent from every district, then guards training with a morning session and a two-hour evening block (4:30–6:30) around the school day; girls reach the national games and one has competed at the <b>Asian Games</b>.",
+    "<b>Sport is quietly doing the work of pastoral care:</b> there is no counsellor, and nurses say distress simply never reaches them — the unspoken logic being that constant sport is outlet enough. For 520 adolescent girls living far from home, that is a <b>blind spot, not a strategy</b>, and the clearest single gap of the visit.",
+    "<b>Two nurses hold the whole school:</b> one resident and one visiting nurse run the health profiles, emergency logs and hospital runs for 520 girls on the back of a single annual RBSK camp; menstrual and adolescent health happen only as <b>informal, as-needed</b> conversations, with no margin if more than one girl needs care at once.",
+    "<b>Strong adult cover at night, weak walls around it:</b> five staff sleep on campus — a deputy warden, two housemasters and two nurses, more than any school visited — yet there is no night watchman, the boundary walls are low and the site is remote, so the fallback is simply locking the dorm floors. With <b>no child-protection policy, background checks, grievance channel or POCSO training</b> in evidence, safeguarding rests entirely on people.",
+    "<b>Built well in 2016, but two layers were skipped:</b> the pucca 5-acre campus has four science labs, a sponsored basketball facility and free 24×7 power — but only <b>10 computers, partial Wi-Fi and a vacant ICT post</b> leave digital provision barely working, and with no ramps or lifts the new building is effectively closed to any girl with a physical or sensory disability.",
+    "<b>A clean, loved hostel with quiet dignity gaps:</b> rooms are uncrowded (~20 girls, fewer than peer schools) and visibly owned — the girls decorate their own walls and painted female sports stars with their arts teacher — yet they must <b>bring mattresses from home</b> (a silent filter on poorer families), the urinals have no partitions, and there is no common room or TV to simply unwind.",
+    "<b>Food and oversight are the dependable parts:</b> meals follow a detailed central nutrition chart run by a District Purchase Committee vendor (who also staffs the kitchen), with teachers and the deputy warden eating the same food as a live check and <b>HMS</b> logging the data; governance runs cleanly from the society through district and regional coordinators — though one principal stretches across both the school (5–10) and the junior college.",
+    "<b>Strong on talent, thin on the rest of growing up:</b> the sports quota is a real onward pathway, but career counselling is light, classroom TVs sit uninstalled, and family contact is mostly a <b>homesickness call</b> rather than real monthly engagement — so the structured wellbeing a statewide intake of young boarders needs is largely missing."
   ],
   infrastructure: {
     status: "warn",
-    summary: "Strong overall; digital lags",
+    summary: "Strong campus; digital is the gap",
     bullets: [
-      "<b>Pucca campus:</b> 5 acres across 2 blocks with 20 classrooms, four science labs (Physics, Chemistry, Botany, Zoology), a functional library, RO drinking water and 24×7 electricity; the new building was handed to the society in 2016 and is notably clean.",
-      "<b>Sports facilities:</b> Externally-sponsored basketball courts with coaches (built with the High Five organisation), gym, badminton, table tennis and chess; a running track is under construction.",
-      "<b>Digital gap:</b> Only 10 computers and partial Wi-Fi, with the computer-instructor post vacant since a resignation.",
-      "<b>Under construction:</b> A new, larger dining hall is being built; there is no backup power on site."
+      "<b>A clean, well-built 2016 campus:</b> a pucca 5-acre site in two blocks with 20 classrooms, four science labs (Physics, Chemistry, Botany, Zoology), a functional library, RO drinking water and free 24×7 power; the building was handed to the society in 2016 and the premises are <b>notably clean</b>.",
+      "<b>Sport is the standout:</b> an externally-sponsored basketball facility with coaches (built with the <b>High Five</b> organisation), plus gym, badminton, table tennis and chess; a running track is still <b>under construction</b>, fitting for a school built around sport.",
+      "<b>Digital provision barely functions:</b> just 10 computers and partial Wi-Fi, and the <b>computer-instructor post has sat vacant since a resignation</b>, so it's unclear the lab is meaningfully used.",
+      "<b>Works in progress, and one hard gap:</b> a new, larger dining hall is being built to replace the smaller current one, but there is <b>no backup power</b> anywhere on site."
     ],
     checklist: [
       {item:"Classrooms",            status:"ok",  v:"20 rooms"},
@@ -611,7 +627,7 @@ window.SCHOOLS = [
       {item:"Library",               status:"ok",  v:"Functional"},
       {item:"Wi-Fi / Internet",      status:"ok",  v:"Partial"},
       {item:"Drinking water",        status:"ok",  v:"RO plant"},
-      {item:"Electricity",           status:"ok",  v:"24×7"},
+      {item:"Electricity",           status:"ok",  v:"24×7 (free)"},
       {item:"Toilets",               status:"warn",v:"16; open urinals"},
       {item:"Medical / first-aid",   status:"ok",  v:"Yes"},
       {item:"Residential kitchen",   status:"ok",  v:"Yes"},
@@ -624,15 +640,16 @@ window.SCHOOLS = [
   },
   staff: {
     status: "warn",
-    summary: "Strong night cover, key gaps",
-    mix: "No guest teachers yet; 7 of 24 teaching posts vacant, to be filled by guest teachers next year (~17 regular in post)",
+    summary: "Strong night cover; key gaps",
+    mix: "No guest teachers in post yet; 7 of 24 teaching posts vacant, slated for guest teachers next year (~17 regular currently)",
     bullets: [
-      "<b>Vacancies:</b> 17 of 24 teaching posts filled; the principal expects the 7 vacancies to be covered by guest teachers next year.",
-      "<b>Night supervision:</b> Five staff stay on campus overnight — a deputy warden, two housemasters and two nurses — more than at comparable schools.",
-      "<b>Security request:</b> With an all-girls campus and women staff, teachers asked for more security guards on the premises.",
-      "<b>Training gap:</b> Teachers receive academic training, but there is no sports-specific training for teachers or coaches, who rely on existing expertise.",
-      "<b>Commute:</b> Teachers travel from nearby areas and do not find it a problem.",
-      "<b>Attrition:</b> Some new teachers leave early citing heavy workload; those who stay adapt to the demands."
+      "<b>Seven posts short, filled later:</b> 17 of 24 teaching posts are in position; the principal expects the <b>7 vacancies to be covered by guest teachers next year</b>, so there's no guest cover in the interim.",
+      "<b>Unusually strong night supervision:</b> five staff stay on campus overnight — a deputy warden, two housemasters and two nurses — <b>more adult night cover than any other school visited</b>.",
+      "<b>Staff want security, not more teachers:</b> with an all-girls campus run by women and only a single woman guard, teachers' main ask was for <b>more security on the premises</b>.",
+      "<b>Academic training only:</b> teachers get academic in-service training, but despite recruited sports coaches there is <b>no sports-specific training</b> for teachers or coaches, who lean on their own expertise.",
+      "<b>Commute isn't a constraint:</b> teachers travel in from nearby areas and don't find it a problem.",
+      "<b>Self-selecting attrition:</b> some new teachers leave early citing a heavy workload, while those who stay understand the demands and commit — broadly in line with other schools.",
+      "<b>The ICT post is empty:</b> with no computer teacher, the lab is effectively unstaffed."
     ],
     rows: [
       {role:"Teaching", sanc:24, pos:17, vac:7},
@@ -641,26 +658,26 @@ window.SCHOOLS = [
   },
   enrolment: {
     status: "ok",
-    summary: "520 girls, statewide draw",
+    summary: "520 girls; statewide ST intake",
     categories: [
       {l:"SC",v:"—"},{l:"ST",v:"~80%"},{l:"OBC",v:"—"},{l:"Minority",v:"—"},{l:"Other",v:"—"}
     ],
     bullets: [
-      "<b>Strength:</b> 520 girls across grades 5–12.",
-      "<b>Community:</b> About 80% of students are from Scheduled Tribe (ST) communities, in line with the Tribal Welfare mandate.",
-      "<b>Catchment:</b> As the only girls' sports school of its kind, students come from across the state.",
-      "<b>Selection:</b> Admission is via a school-level battery test — height, weight, long jump, short jump, running and the girl's chosen sport, assessed by coaches."
+      "<b>520 girls, grades 5–12:</b> a full residential intake spanning the school and junior college.",
+      "<b>An ST-majority school:</b> about <b>80%</b> of students come from Scheduled Tribe communities, in line with the Tribal Welfare mandate.",
+      "<b>Statewide catchment:</b> as the only girls' sports school of its kind, it draws from <b>every district</b> rather than a local area.",
+      "<b>Admission by battery test:</b> selection runs on a school-level physical test — height, weight, long jump, short jump and running, plus the girl's chosen sport — assessed by the coaches, with places given to those who qualify."
     ]
   },
   wellbeing: {
     status: "crit",
-    summary: "Mental-health gap; nurses stretched",
+    summary: "Physical care only; mental gap",
     bullets: [
-      "<b>Nursing:</b> Two nurses for 520 girls — one resident, one visiting — focused on physical ailments and clearly overburdened.",
-      "<b>Health checks:</b> An annual RBSK visit provides a full check-up; nurses maintain health profiles in between.",
-      "<b>Emergencies:</b> Nurses keep the logs and take girls to hospital themselves.",
-      "<b>Mental health:</b> No counsellor; staff report girls never raise mental distress, and wellbeing is not on the school's radar — the assumption being that sport provides an outlet.",
-      "<b>Adolescent health:</b> Nurses discuss menstrual and hormonal health informally, not as a structured programme."
+      "<b>Two nurses for 520 girls:</b> one resident full-time and one visiting, focused on physical ailments and <b>visibly overburdened</b> by carrying full health responsibility for the school.",
+      "<b>One health camp a year:</b> an annual RBSK visit provides a full check-up; between visits the nurses maintain the health profiles themselves, with little outside structure.",
+      "<b>Emergencies fall to the nurses:</b> they keep the logs and personally take girls to hospital when needed.",
+      "<b>Mental health is off the radar — the visit's clearest red flag:</b> there is no counsellor, and staff reported that girls <b>never raise distress at all</b>; the belief that abundant sport keeps the girls happy means the need isn't even recognised.",
+      "<b>Adolescent health is informal:</b> nurses do talk to girls about menstrual and hormonal change, but <b>only as-needed</b>, never as a structured programme."
     ],
     programs: [
       {l:"Health monitoring",on:true},
@@ -673,81 +690,81 @@ window.SCHOOLS = [
     status: "warn",
     summary: "Clear chain, stretched leadership",
     bullets: [
-      "<b>Oversight chain:</b> Governance flows from the Tribal Welfare society to the school via a Regional Coordinator Officer (academics and requirements; liaises with the principal on issues) and a District Coordinator Officer (reports directly to the society).",
-      "<b>Leadership load:</b> A single principal heads the combined institution — both the junior college and the school (grades 5–10) — for all ~520 girls."
+      "<b>A clear line from society to school:</b> a <b>Regional Coordinator Officer</b> oversees academics and requirements and liaises with the principal on issues, while a <b>District Coordinator Officer</b> reports directly to the Tribal Welfare society.",
+      "<b>One principal across two institutions:</b> a single principal heads both the junior college and the school (grades 5–10) for all ~520 girls — a <b>wide span</b> for one leader."
     ]
   },
   residential: {
     status: "warn",
-    summary: "Clean, not crowded; comfort gaps",
+    summary: "Clean, uncrowded; comfort gaps",
     bullets: [
-      "<b>Occupancy:</b> Enough rooms with about 20 girls each — lower density than other schools, so not overcrowded.",
-      "<b>Bedding:</b> The school does not provide mattresses; girls bring their own from home and take them back during vacations — an equity concern for poorer families.",
-      "<b>Welcome kit:</b> A trunk box (issued once every five years), plus uniform, shoes, bag and bedsheet renewed yearly.",
-      "<b>Ownership:</b> Girls have personalised their room walls, and a painting of female sports personalities — made with the arts teacher and the girls — brightens the complex.",
-      "<b>Ventilation & storage:</b> Rooms are fairly ventilated with fans and individual storage for each girl.",
-      "<b>Washrooms:</b> Enough toilets and clean, but the girls' urinals have no partitions — a privacy concern.",
-      "<b>Laundry:</b> Girls wash their own clothes, with occasional outside help for larger items.",
-      "<b>Recreation gap:</b> No common room, TV or shared relaxation space despite a purpose-built hostel.",
-      "<b>Routine:</b> Wake and meditation, ~1 hour morning sports, school 8:30–1:30, lunch, sports 4:30–6:30, then study 7:00–9:00.",
-      "<b>Power:</b> No backup power, though the school receives free electricity."
+      "<b>Uncrowded by local standards:</b> enough rooms with about <b>20 girls each</b> — lower density than other schools visited, so the dorms don't feel packed.",
+      "<b>Girls supply their own mattresses:</b> the school issues none, so girls bring them from home and carry them back each vacation — a <b>quiet equity filter</b> on families who can't easily afford one.",
+      "<b>A welcome kit, mostly annual:</b> each girl gets a trunk box (issued <b>once every five years</b>), plus uniform, shoes, bag and bedsheet renewed yearly.",
+      "<b>A space the girls own:</b> they've personalised their own room walls, and — fitting for a sports school — painted a striking mural of <b>female sports personalities</b> with the arts teacher.",
+      "<b>Ventilated, with personal storage:</b> rooms are fairly airy on fans alone, with separate storage for each girl's belongings.",
+      "<b>Clean washrooms, but a privacy gap:</b> there are enough toilets and they're kept clean, yet the girls' urinals have <b>no partitions or doors</b> — open, boys'-style — which stood out as unusual and undignified.",
+      "<b>Laundry done by the girls:</b> they wash their own clothes, with occasional outside help for larger items.",
+      "<b>No place to simply relax:</b> despite a purpose-built complex, there is <b>no common room, TV or indoor recreation space</b> for the girls to gather and unwind.",
+      "<b>A sport-heavy daily routine:</b> wake and meditation, a ~1-hour morning sports session, school 8:30–1:30, lunch, sport again <b>4:30–6:30</b>, then study 7:00–9:00.",
+      "<b>No backup power:</b> outages leave the blocks dark, though the school does receive free electricity."
     ]
   },
   food: {
     status: "ok",
-    summary: "Centrally planned, well-run",
+    summary: "Tightly run central system",
     bullets: [
-      "<b>Menu:</b> Follows the centrally approved food chart — a detailed day-by-day, meal-by-meal plan built around the girls' nutrition.",
-      "<b>Procurement:</b> Sourced through a private vendor onboarded by the District Purchase Committee, which also supplies the cooks and cleaning staff.",
-      "<b>Kitchen & storage:</b> Clean kitchen and a large current dining hall with separate storage for proteins and vegetables; a big RO water station keeps the girls hydrated.",
-      "<b>Quality oversight:</b> Teachers and the deputy warden eat the same food and act on any issues the girls raise.",
-      "<b>Tracking:</b> Meal and diet data is logged through the HMS portal.",
-      "<b>Dining hall:</b> A new, larger hall is under construction; the current one is smaller but sufficient."
+      "<b>A detailed central menu:</b> meals follow the centrally approved food chart — a <b>day-by-day, meal-by-meal</b> plan built around the girls' nutritional needs.",
+      "<b>One vendor, food to staff:</b> a private vendor onboarded by the <b>District Purchase Committee</b> supplies the food and also provides the cooks and cleaning staff.",
+      "<b>Clean kitchen, organised storage:</b> the kitchen is notably clean and the current dining hall is large, with <b>separate storage for proteins and vegetables</b>; a big RO water station keeps the girls hydrated.",
+      "<b>Quality checked by those who eat it:</b> teachers and the deputy warden eat the same food as the girls, and any issue raised is <b>taken seriously and acted on</b>.",
+      "<b>Logged in HMS:</b> meal and diet data is recorded through the Hostel Management System.",
+      "<b>A bigger hall on the way:</b> a new, larger dining hall is under construction; the current one is smaller but sufficient for now."
     ]
   },
   academics: {
     status: "warn",
-    summary: "Sports excellence, thin academics",
+    summary: "Sports excellence, academics thin",
     bullets: [
-      "<b>Medium & streams:</b> English medium, grades 5–12; intermediate streams switched from CEC to MPC and BiPC on parents' and students' request.",
-      "<b>Sports focus:</b> Not a test-prep Centre of Excellence, but 3–4 dedicated coaches, a strong basketball facility and specialisation in select sports; girls train morning and evening.",
-      "<b>Remedial:</b> One hour of individual academic support is provided.",
-      "<b>Classroom tech:</b> TVs received but not yet installed; the computer lab is in poor condition with no ICT teacher, so usage is unclear.",
-      "<b>Careers:</b> Limited career counselling; Class 11–12 girls juggle intermediate study with training, and staff point to the sports quota as the main pathway.",
-      "<b>Outcomes:</b> Girls compete at the national games, and one student has competed at the Asian Games."
+      "<b>English medium, two intermediate streams:</b> grades 5–12, with intermediate <b>switched from CEC to MPC and BiPC</b> on parents' and students' request; no other streams run.",
+      "<b>Coaching, not test prep:</b> not a Centre of Excellence for academics, but with <b>3–4 dedicated coaches</b>, a strong basketball facility and a focus on select sports, trained morning and evening.",
+      "<b>An hour of individual support:</b> each girl receives one hour of <b>individual academic support</b>.",
+      "<b>Classroom tech is stalled:</b> TVs had just arrived but were <b>not yet installed</b>, the computer lab is in poor condition, and with no ICT teacher it's unclear the machines are used at all.",
+      "<b>Careers lean on the quota:</b> career counselling is light — Class 11–12 girls juggle intermediate study with training — and staff point to the <b>sports quota</b> as the main route onward.",
+      "<b>Proven outcomes:</b> girls compete at the <b>national games</b>, and one student has reached the <b>Asian Games</b>."
     ]
   },
   disability: {
     status: "crit",
-    summary: "No accessibility provisions",
+    summary: "No access provisions",
     bullets: [
-      "<b>Physical access:</b> No ramps or lifts in a new government building — effectively inaccessible to students with physical disabilities.",
-      "<b>Sensory disabilities:</b> No provisions for deaf or non-speaking students."
+      "<b>A new building with no access:</b> there are <b>no ramps and no lifts</b>, so the 2016 campus is effectively inaccessible to any girl with a physical disability.",
+      "<b>Nothing for sensory needs:</b> no provisions for deaf or non-speaking students either — disability inclusion is, in practice, absent."
     ]
   },
   girls: {
     status: "warn",
     summary: "Limited, unstructured support",
     bullets: [
-      "<b>Wellbeing:</b> Gender-specific wellbeing support is limited and neither thought-through nor consistent.",
-      "<b>Pathways:</b> The main route onward is the sports quota; structured pathway guidance is otherwise thin."
+      "<b>Gender-specific wellbeing is ad hoc:</b> support around being an adolescent girl is limited and neither thought-through nor consistent — it largely <b>doesn't happen</b> in any structured way.",
+      "<b>The pathway is the quota:</b> the main onward route is the sports quota; beyond that, structured guidance on options is thin."
     ]
   },
   safeguarding: {
     status: "crit",
-    summary: "Night cover only; major gaps",
+    summary: "Adults at night; systems absent",
     bullets: [
-      "<b>Night supervision:</b> Five staff stay overnight (deputy warden, two housemasters, two nurses) — the main safeguard, though thin for 520 girls.",
-      "<b>Perimeter:</b> No night watchman; a remote location with low boundary walls. The interim fix is locking all dormitory floors at night, which is not robust in an emergency.",
-      "<b>Formal safeguarding:</b> No child-protection/POCSO policy, staff background checks, grievance channel or safeguarding training were in evidence."
+      "<b>People, not systems:</b> five staff overnight (deputy warden, two housemasters, two nurses) are the <b>main safeguard</b> — more adult cover than peer schools, but still thin for 520 girls.",
+      "<b>A weak perimeter, patched by locks:</b> there's no night watchman, the site is remote and the boundary walls low, so the response is simply <b>locking the dormitory floors</b> at night — not robust if an emergency strikes inside.",
+      "<b>No formal protection in evidence:</b> no child-protection or POCSO policy, no staff background checks, no grievance channel and no safeguarding training were mentioned."
     ]
   },
   parents: {
     status: "warn",
     summary: "Monthly PTMs, thin engagement",
     bullets: [
-      "<b>Engagement gap:</b> Monthly PTMs happen, but girls feel largely disconnected from home.",
-      "<b>Contact:</b> Housemasters mainly call parents when a girl is homesick; little structured engagement beyond that."
+      "<b>Engagement is thin on the ground:</b> monthly PTMs are held, but the girls feel <b>largely disconnected</b> from home.",
+      "<b>Contact mostly means homesickness:</b> housemasters tend to call parents when a girl is homesick, with little structured engagement beyond that."
     ]
   },
   quotes: [
@@ -756,5 +773,5 @@ window.SCHOOLS = [
     { q: "Girls don't really come to us about mental distress — they have sport as an outlet.", by: "School staff" }
   ]
 }
-,  
-];
+,
+  ];
