@@ -399,178 +399,168 @@ window.SCHOOLS = [
       "<b>No mental-health support for young boarders.</b> Physical health is reasonably covered, but the once- or twice-yearly \"counsellor\" is really a career adviser; there is no psychological counsellor — a gap staff themselves call essential for such young children living far from home.",
       "<b>A genuine bright spot.</b> Parents are engaged through monthly meetings (and flagged infrastructure as their biggest concern), and a student said the teachers take good care of them despite modest facilities — enough that they feel settled rather than wanting to go home."
     ],
-    panels:{
-      infrastructure:{
-        status:"crit",
-        summary:"Ageing; structural damage, stalled repairs",
-        bullets:[
-          "Owned 24-acre campus with two single-floor 1997 blocks; 20 classrooms (10 more sought), a library, a small 20-PC IT lab, Wi-Fi, smart-classroom TVs, and dedicated art and music rooms.",
-          "Among the worst-condition buildings seen: serious cracks and fallen masonry in places; repair funds released but work stalled by contractor problems, so nothing has been fixed.",
-          "Old, long-faded paint and no repairs in a very long time across all blocks, including the separate junior-college building.",
-          "CCTV is down and lighting is a problem; drinking water via RO plant; medical room, on-campus residential kitchen and an annual maintenance budget — but no generator backup and no CWSN washrooms.",
-          "Much of the 24-acre owned campus sits barren and underused."
-        ],
-        checklist:[
-          {l:"Classrooms",s:"ok",n:"20 (10 more sought)"},
-          {l:"Science labs",s:"ok",n:"Well-equipped"},
-          {l:"Computer lab",s:"warn",n:"Small; no curriculum/teacher"},
-          {l:"Smart classrooms",s:"warn",n:"TVs; staff untrained"},
-          {l:"Library",s:"ok",n:"Available"},
-          {l:"Wi-Fi / Internet",s:"ok",n:"Yes"},
-          {l:"Drinking water",s:"ok",n:"RO plant"},
-          {l:"Electricity",s:"warn",n:"Lighting issues"},
-          {l:"Toilets",s:"warn",n:"Girls' washroom inadequate"},
-          {l:"Medical / first-aid",s:"ok",n:"Yes"},
-          {l:"Residential kitchen",s:"ok",n:"On campus"},
-          {l:"Dining hall",s:"ok",n:"Seats 400 (reported)"},
-          {l:"Dormitories",s:"crit",n:"Girls on floor; crowded"},
-          {l:"Indoor games",s:"ok",n:"Yes"},
-          {l:"Outdoor sports ground",s:"ok",n:"Yes"},
-          {l:"Backup power",s:"crit",n:"No generator"}
-        ]
-      },
-      staff:{
-        status:"warn",
-        mix:"10 of 19 in post are guest teachers (~9 regular)",
-        summary:"Short-staffed; residential care improvised",
-        bullets:[
-          "Eight of 27 sanctioned teaching posts are vacant — the school is genuinely short-staffed — and 10 of the 19 in post are guest teachers.",
-          "Only three of the eight fine-arts forms are staffed (drawing, vocals, dance); the other five teacher posts are unfilled and being recruited.",
-          "Newly recruited teachers are very reluctant to take on residential/warden duty, so training them on it falls on senior teachers; there are no dedicated wardens and no structured residential-training programme.",
-          "Professional development is top-down, infrequent and mostly SCERT-run, and doesn't reflect teachers' own stated needs (handling students, soft skills, subject pedagogy).",
-          "A monthly principal-and-RCO review across the society's schools provides accountability, but only on uploaded student academic profiles — no feedback on the residential or pastoral side."
-        ],
-        rows:[
-          {role:"Teaching",sanc:27,pos:19,vac:8},
-          {role:"Administrative",sanc:2,pos:2,vac:0},
-          {role:"Cleaning / campus",sanc:5,pos:5,vac:0},
-          {role:"Security / watchman",sanc:1,pos:1,vac:0}
-        ]
-      },
-      enrolment:{
-        status:"ok",
-        summary:"ST-majority specialist intake (~89%)",
-        target:null,
-        actual:89,
-        group:"ST",
-        categories:[
-          {l:"SC",v:"—"},
-          {l:"ST",v:"89%"},
-          {l:"OBC",v:"6%"},
-          {l:"Minority",v:"—"},
-          {l:"Other",v:"5%"}
-        ],
-        bullets:[
-          "127 students in Cl. 6–10 — 79 boys and 48 girls — in a co-ed residential setting; the separate Cl. 11–12 junior college is boys-only.",
-          "The current 48 girls is a temporary low after the Class 10 batch passed out; at full strength the girls' complex runs close to ~100.",
-          "Intake is ~89% ST with a handful of OBC and other students; only children already in tribal residential schools are eligible, admitted via a fine-arts audition.",
-          "Students come from rural habitations 10–200 km away."
-        ]
-      },
-      academics:{
-        status:"warn",
-        summary:"Strong arts concept, thin delivery",
-        bullets:[
-          "Admission only at grade 6, only from tribal-welfare residential schools statewide, via audition across eight art forms judged by tagged teachers and approved by the society.",
-          "Art-form training runs grades 6–9 — heaviest in 6–7, tapering by 8–9 (mornings academic, one art period a day plus ~1.5–2 hours of supervised practice after hours).",
-          "From grade 10 the art form leaves the timetable entirely; 10–12 is academics only, because of the heavier syllabus — students practise only in free time. Many nonetheless keep it up and pursue it after school, often as their foremost onward choice.",
-          "Only three of eight art forms are currently taught (drawing, vocals, dance); the rest await teachers.",
-          "Labs are well-equipped and materials are replenished as needed and yearly; the art and music rooms are well-stocked with instruments and supplies.",
-          "The IT lab is very small with no curriculum and no computer teacher; classrooms have TVs but staff got no training on using them, so integration is entirely teacher-dependent.",
-          "Regular academic assessments run, but formal assessment of the art-form subjects appears limited or absent."
-        ]
-      },
-      residential:{
-        status:"crit",
-        summary:"Overcrowded; stark girls' inequity",
-        bullets:[
-          "Two separate blocks, girls' and boys'; the girls' block is much smaller, reflecting fewer girls than boys.",
-          "Girls' block: enclosed by a fenced compound wall, with five rooms plus one washroom (down a step) at the end — sized for ~100 girls at full strength, so heavily overcrowded.",
-          "Girls sleep on mattresses on the floor — no beds — around 25 to a room, while the boys have bunk beds; staff said there were no funds to buy beds for the girls, a serious equity concern.",
-          "The girls' building is dark and dingy with no CCTV — a real security gap.",
-          "Boys' dorms are also old and in poor condition, with ~20–25 boys per dorm.",
-          "Wardens are present only on the ground floor; the first-floor rooms' use is unclear and they appeared empty."
-        ]
-      },
-      food:{
-        status:"warn",
-        summary:"Standard menu; quality complaints",
-        bullets:[
-          "Follows the society's standard centrally-set meal plan — three meals plus snacks a day.",
-          "Teachers and all staff eat the same food as students and feed back when changes are needed; there's a student-council channel and feedback is acted on.",
-          "Students regularly report quality problems — including small stones in the food — which likely points to the quality of raw material procured by the vendor (a flagged inference, not a confirmed finding).",
-          "The dining hall (reported to seat ~400) was not seen on this visit, so its condition is unverified."
-        ]
-      },
-      wellbeing:{
-        status:"warn",
-        summary:"Physical cover ok; no mental health",
-        bullets:[
-          "A full-time nurse is on staff, with a doctor visiting monthly and an ANM for night emergencies; serious cases go to nearby hospitals.",
-          "Beyond physical health there is no structured mental-health support — no regular space for students' emotional needs.",
-          "The counsellor who visits once or twice a year is oriented to career pathways, not psychology, so there is effectively no psychological counsellor — a gap teachers call essential for such young children living away from home."
-        ],
-        programs:[
-          {l:"Full-time nurse",on:true},
-          {l:"Monthly doctor visit",on:true},
-          {l:"Fine-arts programme",on:true},
-          {l:"Sports & games",on:true},
-          {l:"Psychological counselling",on:false},
-          {l:"CCTV / safety system",on:false}
-        ]
-      },
-      disability:{
-        status:"crit",
-        summary:"No inclusion of any kind",
-        bullets:[
-          "Disability inclusion is a complete gap — no provisions of any kind were observed.",
-          "No CWSN washrooms and no accessibility features anywhere on the campus."
-        ]
-      },
-      girls:{
-        status:"warn",
-        summary:"Boys-heavy; gender support absent",
-        bullets:[
-          "No gender sensitization at all on a co-ed campus of teenagers; the instinct among some staff is to separate boys and girls rather than support a healthy co-ed environment — some said the school shouldn't be co-ed.",
-          "The boys-only Cl. 11–12 junior college, plus a boys-heavy roll, makes for a markedly male-dominated setting and forces girls to leave for 11–12.",
-          "Open, unresolved concerns from the visit (flagged as gaps to follow up, not findings): with mostly male teachers, who supports the girls on menstrual and sexual health; whether girls feel safe; and whether they move freely to the grounds or are confined to their cramped block."
-        ]
-      },
-      safeguarding:{
-        status:"warn",
-        summary:"Supervision thin; policy not seen",
-        bullets:[
-          "Night cover is rotating teacher duty with no dedicated, trained wardens; a house master handles hostel safety and discipline, and there is one watchman.",
-          "CCTV is down across the campus, including the girls' block — a clear safety gap.",
-          "No formal child-protection/POCSO policy, staff background checks, grievance channel or safeguarding training were in evidence on the visit."
-        ]
-      },
-      governance:{
-        status:"warn",
-        summary:"Functional; new principal",
-        bullets:[
-          "Led by Principal Baswa Raju (a few months in post) with a vice-principal, a functional SMC and committee-based academic decisions, alongside a student council.",
-          "Fine-arts audition results are approved by head office; hostel supplies are procured through the GCC (Girijan Cooperative Corporation), Kamareddy.",
-          "Maintenance is handled by the principal with staff and students, with a dedicated maintenance person and an annual maintenance budget — though the major structural repair remains stalled with the contractor."
-        ]
-      },
-      parents:{
-        status:"ok",
-        summary:"Engaged; flag infrastructure",
-        bullets:[
-          "Monthly parent meetings are held, and parents (met during admissions) said they are welcomed to give input and raise any challenges their children face.",
-          "Parents' biggest flag was infrastructure — poor and in clear need of upgrade.",
-          "A student noted that despite the modest facilities, teachers take good care of them — enough that they feel settled rather than wanting to go home."
-        ]
-      },
-      quotes:[
-        {q:"The infrastructure here really needs an upgrade.",by:"Parent"},
-        {q:"The facilities aren't great, but the teachers take good care of us.",by:"Student"},
-        {q:"These schools shouldn't be co-ed — it's hard to manage boys and girls together.",by:"Teacher"}
+    infrastructure:{
+      status:"crit",
+      summary:"Ageing; structural damage, stalled repairs",
+      bullets:[
+        "<b>Owned 24-acre campus:</b> two single-floor 1997 blocks; 20 classrooms (10 more sought), a library, a small 20-PC IT lab, Wi-Fi, smart-classroom TVs, and dedicated art and music rooms.",
+        "<b>Among the worst seen:</b> serious cracks and fallen masonry in places; repair funds released but work stalled by contractor problems, so nothing has been fixed.",
+        "<b>No upkeep in years:</b> old, long-faded paint and no repairs in a very long time across all blocks, including the separate junior-college building.",
+        "<b>Safety & utility gaps:</b> CCTV is down and lighting is a problem; RO drinking water, a medical room, an on-campus kitchen and an annual maintenance budget — but no generator backup and no CWSN washrooms.",
+        "<b>Underused land:</b> much of the 24-acre owned campus sits barren and unused."
+      ],
+      checklist:[
+        {item:"Classrooms",status:"ok",v:"20 (10 more sought)"},
+        {item:"Science labs",status:"ok",v:"Well-equipped"},
+        {item:"Computer lab",status:"warn",v:"Small; no curriculum/teacher"},
+        {item:"Smart classrooms",status:"warn",v:"TVs; staff untrained"},
+        {item:"Library",status:"ok",v:"Available"},
+        {item:"Wi-Fi / Internet",status:"ok",v:"Yes"},
+        {item:"Drinking water",status:"ok",v:"RO plant"},
+        {item:"Electricity",status:"warn",v:"Lighting issues"},
+        {item:"Toilets",status:"warn",v:"Girls' washroom inadequate"},
+        {item:"Medical / first-aid",status:"ok",v:"Yes"},
+        {item:"Residential kitchen",status:"ok",v:"On campus"},
+        {item:"Dining hall",status:"ok",v:"Seats 400 (reported)"},
+        {item:"Dormitories",status:"crit",v:"Girls on floor; crowded"},
+        {item:"Indoor games",status:"ok",v:"Yes"},
+        {item:"Outdoor sports ground",status:"ok",v:"Yes"},
+        {item:"Backup power",status:"crit",v:"No generator"}
       ]
-    }
+    },
+    staff:{
+      mix:"10 of 19 in post are guest teachers (~9 regular)",
+      status:"warn",
+      summary:"Short-staffed; residential care improvised",
+      bullets:[
+        "<b>Genuinely short-staffed:</b> eight of 27 sanctioned teaching posts are vacant, and 10 of the 19 in post are guest teachers.",
+        "<b>Arts posts unfilled:</b> only three of the eight fine-arts forms are staffed (drawing, vocals, dance); the other five posts are being recruited.",
+        "<b>Residential care improvised:</b> new recruits are reluctant to take on warden duty, so training falls on senior teachers; there are no dedicated wardens and no structured residential-training programme.",
+        "<b>Training mismatch:</b> professional development is top-down, infrequent and mostly SCERT-run, and doesn't reflect teachers' stated needs (handling students, soft skills, subject pedagogy).",
+        "<b>Academic-only oversight:</b> a monthly principal-and-RCO review across the society's schools gives accountability, but only on uploaded student academic profiles — nothing on the residential or pastoral side."
+      ],
+      rows:[
+        {role:"Teaching",sanc:27,pos:19,vac:8},
+        {role:"Administrative",sanc:2,pos:2,vac:0},
+        {role:"Cleaning / campus",sanc:5,pos:5,vac:0},
+        {role:"Security / watchman",sanc:1,pos:1,vac:0}
+      ]
+    },
+    enrolment:{
+      status:"ok",
+      summary:"ST-majority specialist intake (~89%)",
+      target:null, actual:89, group:"ST",
+      bullets:[
+        "<b>127 in Cl. 6–10:</b> 79 boys and 48 girls in a co-ed residential setting; the separate Cl. 11–12 junior college is boys-only.",
+        "<b>Temporary low for girls:</b> the current 48 girls follows the Class 10 batch passing out; at full strength the girls' complex runs close to ~100.",
+        "<b>Specialist tribal intake:</b> ~89% ST with a handful of OBC and other students; only children already in tribal residential schools are eligible, admitted via a fine-arts audition.",
+        "<b>Wide catchment:</b> students come from rural habitations 10–200 km away."
+      ],
+      categories:[{l:"SC",v:"—"},{l:"ST",v:"89%"},{l:"OBC",v:"6%"},{l:"Minority",v:"—"},{l:"Other",v:"5%"}]
+    },
+    academics:{
+      status:"warn",
+      summary:"Strong arts concept, thin delivery",
+      bullets:[
+        "<b>Audition-only entry:</b> admission only at grade 6, only from tribal-welfare residential schools statewide, via audition across eight art forms judged by tagged teachers and approved by the society.",
+        "<b>Training tapers by Cl. 9:</b> art-form work runs grades 6–9 — heaviest in 6–7 (mornings academic, one art period a day plus ~1.5–2 hours of supervised practice after hours).",
+        "<b>Dropped at grade 10:</b> the art form then leaves the timetable entirely and 10–12 is academics only, owing to the heavier syllabus — yet many students keep practising and pursue it onward as their foremost choice.",
+        "<b>Only 3 of 8 forms taught:</b> drawing, vocals and dance are staffed; the rest await teachers.",
+        "<b>Well-resourced studios:</b> labs are well-equipped and materials replenished as needed and yearly; art and music rooms are well-stocked.",
+        "<b>IT & smart-class gaps:</b> the IT lab is very small with no curriculum and no computer teacher; classrooms have TVs but staff had no training on them, so use is entirely teacher-dependent.",
+        "<b>Arts unassessed:</b> regular academic assessments run, but formal assessment of the art-form subjects appears limited or absent."
+      ]
+    },
+    residential:{
+      status:"crit",
+      summary:"Overcrowded; stark girls' inequity",
+      bullets:[
+        "<b>Two separate blocks:</b> girls' and boys'; the girls' block is much smaller, reflecting fewer girls than boys.",
+        "<b>Girls' block overcrowded:</b> a fenced compound with five rooms plus one washroom at the end, sized for ~100 girls at full strength.",
+        "<b>Floor mattresses, not beds:</b> girls sleep on the floor, ~25 to a room, while boys have bunk beds; staff said there were no funds for girls' beds — a serious equity concern.",
+        "<b>Dark and unmonitored:</b> the girls' building is dark and dingy with no CCTV — a real security gap.",
+        "<b>Boys' dorms also poor:</b> old and in poor condition, with ~20–25 boys per dorm.",
+        "<b>Thin night supervision:</b> wardens are present only on the ground floor; the first-floor rooms' use is unclear and they appeared empty."
+      ]
+    },
+    food:{
+      status:"warn",
+      summary:"Standard menu; quality complaints",
+      bullets:[
+        "<b>Standard meal plan:</b> the society's centrally-set menu — three meals plus snacks a day.",
+        "<b>Working feedback loop:</b> teachers and all staff eat the same food, and student-council feedback is acted on.",
+        "<b>Recurring quality issues:</b> students regularly report problems including small stones, which likely points to the vendor's raw-material quality (a flagged inference, not a confirmed finding).",
+        "<b>Dining hall unverified:</b> reported to seat ~400, but it was not seen on this visit."
+      ]
+    },
+    wellbeing:{
+      status:"warn",
+      summary:"Physical cover ok; no mental health",
+      bullets:[
+        "<b>Physical cover in place:</b> a full-time nurse, a monthly doctor visit and an ANM for night emergencies; serious cases go to nearby hospitals.",
+        "<b>No mental-health support:</b> beyond physical health there is no structured space for students' emotional needs.",
+        "<b>Career adviser, not counsellor:</b> the once- or twice-yearly visitor is oriented to career pathways, not psychology — effectively no psychological counsellor, a gap teachers call essential for such young children away from home."
+      ],
+      programs:[
+        {l:"Full-time nurse",on:true},
+        {l:"Monthly doctor visit",on:true},
+        {l:"Fine-arts programme",on:true},
+        {l:"Sports & games",on:true},
+        {l:"Psychological counselling",on:false},
+        {l:"CCTV / safety system",on:false}
+      ]
+    },
+    disability:{
+      status:"crit",
+      summary:"No inclusion of any kind",
+      bullets:[
+        "<b>A complete gap:</b> no disability-inclusion provisions of any kind were observed.",
+        "<b>No access features:</b> no CWSN washrooms and no accessibility features anywhere on campus."
+      ]
+    },
+    girls:{
+      status:"warn",
+      summary:"Boys-heavy; gender support absent",
+      bullets:[
+        "<b>No sensitization:</b> none at all on a co-ed campus of teenagers; some staff instinct is to separate the sexes — or to say the school shouldn't be co-ed — rather than support a healthy co-ed environment.",
+        "<b>Male-dominated setting:</b> a boys-only Cl. 11–12 junior college plus a boys-heavy roll, which also forces girls to leave for 11–12.",
+        "<b>Open concerns to follow up:</b> with mostly male teachers, who supports girls on menstrual and sexual health; whether girls feel safe; and whether they move freely to the grounds or stay confined to their cramped block. (Flagged as gaps, not findings.)"
+      ]
+    },
+    safeguarding:{
+      status:"warn",
+      summary:"Supervision thin; policy not seen",
+      bullets:[
+        "<b>No dedicated wardens:</b> night cover is rotating teacher duty; a house master handles hostel safety and discipline, with one watchman.",
+        "<b>CCTV down:</b> across the campus, including the girls' block — a clear safety gap.",
+        "<b>Policy not in evidence:</b> no formal child-protection/POCSO policy, staff background checks, grievance channel or safeguarding training were seen on the visit."
+      ]
+    },
+    governance:{
+      status:"warn",
+      summary:"Functional; new principal",
+      bullets:[
+        "<b>New principal:</b> Baswa Raju (a few months in post) with a vice-principal, a functional SMC, committee-based academic decisions and a student council.",
+        "<b>Procurement:</b> fine-arts audition results approved by head office; hostel supplies procured through the GCC (Girijan Cooperative Corporation), Kamareddy.",
+        "<b>Maintenance stalled:</b> handled by the principal with staff and students, with a dedicated maintenance person and annual budget — but the major structural repair remains stalled with the contractor."
+      ]
+    },
+    parents:{
+      status:"ok",
+      summary:"Engaged; flag infrastructure",
+      bullets:[
+        "<b>Monthly meetings:</b> parents (met during admissions) said they are welcomed to give input and raise any challenges their children face.",
+        "<b>Top concern is infrastructure:</b> flagged as poor and in clear need of upgrade.",
+        "<b>Pastoral warmth:</b> a student noted that despite modest facilities, teachers take good care of them — enough that they feel settled rather than wanting to go home."
+      ]
+    },
+    quotes:[
+      {q:"The infrastructure here really needs an upgrade.",by:"Parent"},
+      {q:"The facilities aren't great, but the teachers take good care of us.",by:"Student"},
+      {q:"These schools shouldn't be co-ed — it's hard to manage boys and girls together.",by:"Teacher"}
+    ]
   }
-,
+  ,
   {
   id: "mw-khairatabad",
   real: true,
