@@ -379,7 +379,7 @@ window.SCHOOLS = [
       ]
     }
   }  ,
-  {
+{
     id:"tw-narsapur", real:true,
     name:"TGTWR Fine Arts School (Co-Ed), Narsapur",
     society:"TW",
