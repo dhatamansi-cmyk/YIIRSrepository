@@ -378,8 +378,9 @@ window.SCHOOLS = [
         "Repairs are letters escalated to the <b>Executive Engineer, TGSEWIDC</b> (and the TGSWREI Society / Collector) and are not logged; a mess committee meets monthly on the diet bill; cost runs ~₹1 lakh per student a year (~₹1.3 lakh for the COE stream)."
       ]
     }
-  }  ,
-{
+  }  
+  ,
+  {
     id:"tw-narsapur", real:true,
     name:"TGTWR Fine Arts School (Co-Ed), Narsapur",
     society:"TW",
