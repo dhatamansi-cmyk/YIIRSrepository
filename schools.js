@@ -1396,4 +1396,225 @@ window.SCHOOLS = [
     { q: "Boys come back from vacation and need weeks to resettle — social media changes them completely.", by: "Teacher" }
   ]
 }
+  {
+  id: "tw-hanamkonda",
+  real: true,
+  name: "TGTWUR JC(G) Hanamkonda",
+  society: "TW",
+  district: "Hanamkonda",
+  constituency: "Data not available",
+  established: "2016",
+  map: { x: 270, y: 230 },
+  photos: [],
+  metrics: {
+    enrolment: "631", teachers: "27", sanctioned: "29",
+    vacancies: "2", nonTeaching: "7",
+    gender: "Girls",
+    building: "Govt"
+  },
+  insights: [
+    "<b>Dormitory doubles as study hall:</b> Girls sleep and study in the same room — no separate residential and academic spaces exist, compressing rest, study and personal time into a single cramped environment.",
+    "<b>Water crisis:</b> Students and teachers flagged water shortage as the single biggest daily problem — overhead tank supply is insufficient for 631 students, with washroom access managed by assigned time slots.",
+    "<b>No seating in classrooms:</b> Students sit on the floor all day with no tables or chairs; back pain has been reported as a result.",
+    "<b>No school vehicle:</b> Emergency medical transfers rely on local autorickshaws, including at night — a serious safety gap for a fully residential girls' school.",
+    "<b>Kalyan Lakshmi effect:</b> Dropout rate has been near-eliminated since Telangana formation; the state scheme linking government benefits to girls remaining in school until 18 is directly credited.",
+    "<b>Outstanding academic outcomes:</b> 100% pass rate at Class 10, 90% at Intermediate Year 2; ~75% distinction rate — among the strongest results in the cohort visited.",
+    "<b>No career guidance beyond Grade 10:</b> Students chose science streams based on availability, not informed choice; all students requested structured career counselling to understand options beyond engineering."
+  ],
+  infrastructure: {
+    status: "crit",
+    summary: "No seating; water shortage",
+    bullets: [
+      "<b>Campus:</b> 5.7-acre owned campus; 1 permanent block (G+2 floors), constructed 2020–21; 16 classrooms.",
+      "<b>No classroom furniture:</b> Students sit on the floor throughout the school day — no tables or chairs; back pain reported by students.",
+      "<b>Computer lab:</b> 1 lab with 30 systems; 2 periods/week for Grades 6–10; intermediate students (11–12) have limited access only.",
+      "<b>Science labs:</b> 2 labs available.",
+      "<b>Library:</b> Available (marked on form).",
+      "<b>Wi-Fi:</b> Available on campus.",
+      "<b>Smart classrooms:</b> None.",
+      "<b>Water supply:</b> Functional drinking water confirmed but students flagged overhead tank supply as critically insufficient for 631 students — the top daily complaint.",
+      "<b>Toilets:</b> 20 girls' toilets; only 1 washroom per floor; students manage via class-assigned time slots including evening slots.",
+      "<b>Rainwater harvesting & composting:</b> Both in place.",
+      "<b>Last major repair:</b> 2025–26 (floors, terrace, toilets, kitchen renovation); no pending urgent work; annual maintenance budget ₹16,000; maintenance activities logged.",
+      "<b>Biggest infrastructure gap:</b> Overhead tank capacity and toilet provision — flagged by both principal and students."
+    ],
+    checklist: [
+      { item: "Classrooms",            status: "warn", v: "16 rooms; no tables or chairs — students sit on floor" },
+      { item: "Science labs",          status: "ok",   v: "2 labs" },
+      { item: "Computer lab",          status: "warn", v: "1 lab, 30 systems; Grades 11–12 access limited" },
+      { item: "Smart classrooms",      status: "crit", v: "None" },
+      { item: "Library",               status: "ok",   v: "Available" },
+      { item: "Wi-Fi / Internet",      status: "ok",   v: "Yes" },
+      { item: "Drinking water",        status: "warn", v: "Available but overhead tank supply critically insufficient for 631 students" },
+      { item: "Electricity",           status: "ok",   v: "Yes; generator/inverter backup available" },
+      { item: "Toilets",               status: "warn", v: "20 girls'; 1 per floor; time-slot system in use; inadequate for student numbers" },
+      { item: "Medical / first-aid",   status: "ok",   v: "Yes; full-time nurse + part-time visiting doctor" },
+      { item: "Residential kitchen",   status: "ok",   v: "Yes; outsourced via centralised tender" },
+      { item: "Dining hall",           status: "warn", v: "Seats 250 but noted as congested; also used for indoor sports/free time" },
+      { item: "Dormitories",           status: "crit", v: "Dormitory doubles as study hall; lack of separate sleep and study space" },
+      { item: "Indoor games",          status: "warn", v: "Dining hall repurposed for sports/free time — no dedicated space" },
+      { item: "Outdoor sports ground", status: "crit", v: "None; no outdoor playground" },
+      { item: "Backup power",          status: "ok",   v: "Generator/inverter backup present" }
+    ]
+  },
+  staff: {
+    status: "warn",
+    summary: "Near-full; warden gap critical",
+    mix: "2 guest/contract teachers of 27 in position (~25 regular)",
+    bullets: [
+      "<b>Leadership:</b> Principal K. Jyostna, in post 2 years; deputy principal present; 4 administrative/management roles; SMC functional.",
+      "<b>Teaching strength:</b> 27 of 29 sanctioned posts filled; 2 vacancies covered by guest/contract teachers.",
+      "<b>No dedicated warden:</b> Deputy warden duty distributed among all teachers on 3-month rotation — flagged as the biggest staffing challenge; causes missed or under-prepared classes.",
+      "<b>Night stay burden:</b> 2 teachers stay overnight per night (1 per floor) on rotation; teachers travel home via autorickshaw after late shifts — inconvenient and unsafe.",
+      "<b>Staff quarters request:</b> Teachers have formally requested quarters on campus; response from authorities is 'in process.'",
+      "<b>Non-teaching staff:</b> 7 non-teaching staff, all outsourced (no regular non-teaching positions sanctioned).",
+      "<b>Kitchen:</b> 1 head cook, 5 assistants, 2 kitchen cleaning staff — all on outsourcing basis.",
+      "<b>Health staff:</b> 1 full-time nurse, 1 part-time visiting doctor, 2 counsellors — unusually well-resourced for health.",
+      "<b>Training:</b> Life skills training conducted; residential-context training (homesickness, child protection, first-generation learners) NOT provided — a gap.",
+      "<b>Teacher counselling training:</b> Conducted last year; not yet this year; frequency not clearly established."
+    ],
+    rows: [
+      { role: "Teaching", sanc: 29, pos: 27, vac: 2 },
+      { role: "Non-teaching & support", sanc: 7, pos: 7, vac: 0 }
+    ]
+  },
+  enrolment: {
+    status: "ok",
+    summary: "631 girls, ST-dominant",
+    categories: [
+      { l: "SC", v: "48" },
+      { l: "ST", v: "551" },
+      { l: "OBC", v: "32" },
+      { l: "Minority", v: "—" },
+      { l: "Other", v: "—" }
+    ],
+    bullets: [
+      "<b>Total enrolment:</b> 631 girls across Grades 5–12 + Intermediate: Primary 80, Upper Primary 240, Secondary 160, Sr. Secondary/JC 151. Near full capacity (~640).",
+      "<b>ST-dominant:</b> 551 of 631 students (87%) are from Scheduled Tribe communities — consistent with the TW society mandate.",
+      "<b>~90% residential:</b> Very few day scholars; the school functions almost entirely as a full boarding institution.",
+      "<b>Catchment:</b> Students from Komatipally, Narsampet and Kommala; average travel 40–50 km, maximum 50 km. Some students travel 6+ hours.",
+      "<b>Near-zero dropout:</b> Dropout rate has been near-eliminated since Telangana formation. The Kalyan Lakshmi scheme — linking government benefits to girls remaining in school until 18 — is directly credited. ~9 dropouts in the first year, mostly health-related.",
+      "<b>Language diversity:</b> Most students are Telugu-speaking; Lambada-speaking students also present. Bridge courses (~1 month) run on entry for Grade 5 students with language gaps.",
+      "<b>Why parents choose this school:</b> Economic constraints, girls' safety and discipline, better study environment than day schools — no commute, built-in daily self-study."
+    ]
+  },
+  wellbeing: {
+    status: "warn",
+    summary: "Counsellors present; gaps remain",
+    bullets: [
+      "<b>Health staffing:</b> 1 full-time nurse, 1 part-time visiting doctor, 2 counsellors on staff — above average for this cohort.",
+      "<b>No dedicated school counsellor:</b> Despite 2 counsellors listed, teachers flagged this as still a gap in daily pastoral care; a psychologist visits occasionally at unclear frequency.",
+      "<b>Homesickness:</b> Identified as the biggest wellbeing challenge for residential girls; initial adjustment is particularly hard for Lambada-speaking students.",
+      "<b>Academic pressure:</b> Noted as a secondary concern alongside homesickness.",
+      "<b>Peer conflict:</b> Verbal disputes handled by teachers and house masters directly; no physical conflicts reported; students described peer relations as generally positive.",
+      "<b>Student safety:</b> Students reported feeling safe; staff accompany girls to hospital; parents can be called and visit regularly.",
+      "<b>Emergency transport:</b> No school vehicle — night emergencies depend on local autorickshaws, a significant safety gap.",
+      "<b>Menstrual health:</b> Hygiene sessions run by house masters for each class — a positive practice.",
+      "<b>Wake-up at 4:30am:</b> PT until 6am daily, including Saturdays; Sunday wake-up at 8am. The very early schedule warrants review for adolescent sleep adequacy.",
+      "<b>Grievance channel:</b> Student grievances routed through house masters to principal; student council in place."
+    ],
+    programs: [
+      { l: "Full-time nurse", on: true },
+      { l: "Part-time doctor", on: true },
+      { l: "Counsellors (x2)", on: true },
+      { l: "Menstrual health sessions", on: true },
+      { l: "Life skills training", on: true },
+      { l: "Residential context training", on: false },
+      { l: "Student council", on: true }
+    ]
+  },
+  governance: {
+    status: "ok",
+    summary: "SMC active; society-led menu",
+    bullets: [
+      "<b>Decision-making:</b> HM along with committee; SMC is functional.",
+      "<b>Menu:</b> Planned by TGTWREIS Society (head office); standard diet chart followed; groceries procured via GCC (centralised tender through ITDA/collector/RCO — not school-administered).",
+      "<b>Maintenance:</b> Principal responsible; dedicated maintenance staff on campus; requests via proper channel; annual budget ₹16,000; activities logged.",
+      "<b>Post-school tracking:</b> Most girls pursue higher education (engineering, pharmacy, degree colleges, TTC); a small number enter marriages after intermediate. No formal alumni tracking confirmed — principal believes records may exist.",
+      "<b>Kalyan Lakshmi scheme:</b> State benefit scheme directly credited with near-eliminating dropout by linking government payments to girls staying in school until 18."
+    ]
+  },
+  residential: {
+    status: "crit",
+    summary: "Dorm doubles as study; water crisis",
+    bullets: [
+      "<b>Dormitory-study overlap:</b> Girls sleep and study in the same room — no separate dormitory and study hall; this is the principal infrastructure gap flagged by the interviewer.",
+      "<b>Hostel block data:</b> Number of dorm rooms, beds and capacity not filled in on form — data not available.",
+      "<b>Daily routine:</b> Wake-up 4:30am, PT until 6am, breakfast 8am, classes 9am–1:30pm, lunch 1:30pm, classes resume 2:30pm, evening roll call ~4:30pm, supervised self-study evenings. Saturday mirrors weekdays; Sunday lighter with arts/music/games period and weekly movie night.",
+      "<b>Water shortage:</b> Overhead tank supply described as critically insufficient; previously had ground-level access. This is students' top daily complaint.",
+      "<b>Washrooms:</b> 20 girls' bathrooms and 20 toilets; 1 per floor; time-slot system assigns bathing by class — some students assigned evening slots.",
+      "<b>Laundry:</b> No machine or manual laundry facility noted (form marked as neither).",
+      "<b>Recreation:</b> TV available; no common room or study hall separate from dorms; no outdoor play area; dining hall repurposed for indoor sports and free time.",
+      "<b>Power:</b> Reliable electricity with generator/inverter backup; emergency lighting present.",
+      "<b>Biggest gap cited:</b> Lack of dormitories (separate from classrooms), congested dining hall, lack of cots and dual desks."
+    ]
+  },
+  food: {
+    status: "ok",
+    summary: "3 meals; centralised tender",
+    bullets: [
+      "<b>Meals:</b> 3 meals per day; standard menu and diet chart followed.",
+      "<b>Menu planning:</b> TGTWREIS Society (head office) sets the menu.",
+      "<b>Procurement:</b> Centralised tender system managed through ITDA/collector/RCO — not administered by the school.",
+      "<b>Kitchen staff:</b> 1 head cook, 5 assistants, 2 kitchen cleaning staff — all on outsourcing basis; 1 meal planning committee member.",
+      "<b>Dining hall:</b> Seats 250 but noted as congested for 631 students; also used as indoor recreation space."
+    ]
+  },
+  academics: {
+    status: "ok",
+    summary: "100% pass rate; streams limited",
+    bullets: [
+      "<b>Grades offered:</b> Classes 5–12 + Junior College (Intermediate Years 1 & 2); upgraded to JC in 2015–16.",
+      "<b>Streams:</b> Science only — MPC and BiPC. No commerce, no vocational or arts streams. Students wanting other streams must attend a separate school (e.g., Nagaram/Madrachalam).",
+      "<b>Outstanding outcomes:</b> Class 10 pass rate 100%; Intermediate Year 2 pass rate 90%; Year 1 pass rate 89%; distinction rate ~75%.",
+      "<b>ICT lab:</b> 15 systems; 2 periods/week for Grades 6–10; Intermediate students have limited access. Personal devices not permitted on campus.",
+      "<b>Career guidance gap:</b> Life skills and career counselling exist primarily for Grades 11–12; students explicitly requested structured guidance before Grade 10 to understand stream and career options beyond engineering.",
+      "<b>No COE:</b> School does not hold COE status; no JEE/NEET-specific coaching.",
+      "<b>No digital training for teachers:</b> No AI or digital classroom integration training; ICT labs used occasionally for teaching."
+    ]
+  },
+  safeguarding: {
+    status: "warn",
+    summary: "No vehicle; warden gap",
+    bullets: [
+      "<b>Child protection policy:</b> Data not available — not captured in form or field notes.",
+      "<b>Background checks:</b> Data not available.",
+      "<b>Night supervision:</b> 2 teachers stay per night (1 per floor) on rotation; nurse also stays. No dedicated warden — this is a sanctioned gap.",
+      "<b>No school vehicle:</b> Night emergencies rely on local autorickshaws — a significant safety risk for a fully residential girls' school.",
+      "<b>CCTV present:</b> Cameras installed; teachers noted they are insufficient and requested additional security guards.",
+      "<b>Grievance channel:</b> Student grievances routed through house masters to principal; student council in place.",
+      "<b>Duty roster:</b> Warden duty roster exists and is followed."
+    ]
+  },
+  girls: {
+    status: "warn",
+    summary: "Hygiene supported; pathways gap",
+    bullets: [
+      "<b>Menstrual health:</b> Hygiene sessions conducted by house masters for each class — a positive, structured practice.",
+      "<b>Campus safety:</b> No school vehicle; night emergency transport via autorickshaw is inadequate for a residential girls' school. Additional security guards requested.",
+      "<b>Career pathways:</b> Career counselling exists for Grades 11–12 but students explicitly requested guidance earlier — they chose science streams by default, not informed choice.",
+      "<b>Language support:</b> Bridge courses (~1 month) support Lambada-speaking students entering Grade 5; school described as an 'equaliser' across socioeconomic backgrounds.",
+      "<b>Aspirations:</b> All students surveyed want to continue into higher education; aspirations range from engineering to IAS; none expressed desire to stop after school.",
+      "<b>Safety perception:</b> Students reported feeling safe; staff accompany girls to hospital; parents visit regularly and can be contacted."
+    ]
+  },
+  parents: {
+    status: "ok",
+    summary: "Trust high; safety primary driver",
+    bullets: [
+      "<b>Primary motivation:</b> Parents chose this school for girls' safety and discipline, economic necessity, and a better study environment than local day schools.",
+      "<b>Distance accepted:</b> Some families accept 6+ hour travel distances — evidence of strong trust in the institution.",
+      "<b>Regular contact:</b> Parents visit regularly; students can call home; if a student is unwell the school contacts parents directly.",
+      "<b>Kalyan Lakshmi linkage:</b> State benefit scheme reinforces parental commitment to keeping girls enrolled until age 18.",
+      "<b>Sibling outcomes:</b> Several students have siblings in other residential schools or colleges (e.g., nursing in Hyderabad) — residential schooling is a family-level strategy for upward mobility."
+    ]
+  },
+  quotes: [
+    { q: "Water is our biggest problem. We have assigned bathing slots because there simply isn't enough for everyone at once.", by: "Student" },
+    { q: "We sit on the floor all day. By evening our backs hurt. We just want tables and chairs like any normal school.", by: "Student" },
+    { q: "We want to know what jobs exist, what options are there — not just engineering. Tell us before Grade 10, not after.", by: "Student" },
+    { q: "Teachers are willing to stay on campus — we just need quarters. The warden gap would solve itself.", by: "Teacher" },
+    { q: "The Kalyan Lakshmi scheme changed everything. Girls who would have left at 15 are now completing intermediate.", by: "Principal" }
+  ]
+}
   ];
