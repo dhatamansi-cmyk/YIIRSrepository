@@ -1616,5 +1616,168 @@ window.SCHOOLS = [
     { q: "Teachers are willing to stay on campus — we just need quarters. The warden gap would solve itself.", by: "Teacher" },
     { q: "The Kalyan Lakshmi scheme changed everything. Girls who would have left at 15 are now completing intermediate.", by: "Principal" }
   ]
+},
+  {
+  id: "bc-kodair",
+  real: true,
+  name: "MJPTBCWIR(G) School, Kodair",
+  society: "BC",
+  district: "Nagarkurnool",
+  constituency: "Data not available",
+  established: "2017",
+  map: { x: 230, y: 280 },
+  photos: [],
+  metrics: {
+    enrolment: "308", teachers: "29", sanctioned: "29",
+    vacancies: "0", nonTeaching: "9",
+    gender: "Girls",
+    building: "Govt"
+  },
+  insights: [
+    "<b>No kitchen on campus:</b> Mid-day meal kitchen is absent; dining hall is semi-constructed and pending repair — a critical gap for a fully residential school of 308 girls.",
+    "<b>No medical room:</b> No first-aid or medical room on campus; full-time nurse is in post but has no dedicated space.",
+    "<b>Pending infrastructure repairs:</b> Dining hall, kitchen, septic tank and bathrooms all flagged as requiring urgent repair work — significant for a school established in 2017.",
+    "<b>Deputy warden gap:</b> Flagged as the single biggest staffing challenge; warden duties distributed among teachers on rotation.",
+    "<b>OBC-dominant enrolment:</b> 241 of 308 students (78%) are OBC — consistent with the BC society mandate.",
+    "<b>No Sr. Secondary yet:</b> School currently runs only up to Grade 10; no Grades 11–12 offered."
+  ],
+  infrastructure: {
+    status: "crit",
+    summary: "No kitchen; dining semi-built",
+    bullets: [
+      "<b>Campus:</b> New 2-phase building, Kodair, Nagarkurnool-509102; government-owned.",
+      "<b>Toilets:</b> 16 girls' toilets in school building; no staff toilets; no CWSN-accessible facilities.",
+      "<b>No medical room:</b> No first-aid room on campus despite a full-time nurse being in post.",
+      "<b>No kitchen:</b> Mid-day meal kitchen not available on campus — meals presumably sourced externally.",
+      "<b>Dining hall:</b> Present but semi-constructed; seating capacity not recorded; urgent repair needed.",
+      "<b>Pending repairs:</b> Dining hall, kitchen, septic tank and bathrooms all flagged for urgent work; no record of last major repair; no annual maintenance budget noted.",
+      "<b>Electricity:</b> Reliable supply; no generator/inverter backup.",
+      "<b>No rainwater harvesting or composting:</b> Neither system in place.",
+      "<b>Maintenance responsibility:</b> Principal and incharge teachers; dedicated maintenance staff on campus; activities logged."
+    ],
+    checklist: [
+      { item: "Classrooms",            status: "na",   v: "Data not available" },
+      { item: "Science labs",          status: "na",   v: "Data not available" },
+      { item: "Computer lab",          status: "na",   v: "Data not available" },
+      { item: "Smart classrooms",      status: "na",   v: "Data not available" },
+      { item: "Library",               status: "na",   v: "Data not available" },
+      { item: "Wi-Fi / Internet",      status: "na",   v: "Data not available" },
+      { item: "Drinking water",        status: "ok",   v: "Yes" },
+      { item: "Electricity",           status: "ok",   v: "Yes" },
+      { item: "Toilets",               status: "warn", v: "16 girls'; no staff toilets; no CWSN access" },
+      { item: "Medical / first-aid",   status: "crit", v: "No medical room; nurse in post but no dedicated space" },
+      { item: "Residential kitchen",   status: "crit", v: "No kitchen on campus" },
+      { item: "Dining hall",           status: "crit", v: "Semi-constructed; pending urgent repair" },
+      { item: "Dormitories",           status: "na",   v: "Data not available" },
+      { item: "Indoor games",          status: "na",   v: "Data not available" },
+      { item: "Outdoor sports ground", status: "ok",   v: "Outdoor play area available" },
+      { item: "Backup power",          status: "crit", v: "No generator or inverter" }
+    ]
+  },
+  staff: {
+    status: "warn",
+    summary: "Fully staffed; warden gap",
+    mix: "Data not available",
+    bullets: [
+      "<b>Leadership:</b> Principal M. Halli; deputy principal present; decisions by committee; SMC functional.",
+      "<b>Teaching strength:</b> All 29 sanctioned teaching posts filled across Primary (4), Upper Primary (11), Secondary (7) and Sr. Secondary (7) levels — no vacancies.",
+      "<b>Biggest staffing challenge:</b> Deputy warden post unfilled; warden duties distributed among teachers on rotation.",
+      "<b>Residential staffing:</b> Chief Warden 1/1, Female Warden 1/1, Night security 1/1, House parents 8/8 — all filled.",
+      "<b>Kitchen staff:</b> 1 head cook, 2 assistants, 1 kitchen cleaner, 10 meal committee members, 1 nutrition supervisor.",
+      "<b>Health:</b> 1 full-time nurse in post; no counsellor, no visiting doctor.",
+      "<b>Training:</b> Professional development training conducted for teachers; residential-context training not confirmed.",
+      "<b>Night duty schedule:</b> Night care teachers on schedule 6:45am–2:30pm and 4:00–7:00pm."
+    ],
+    rows: [
+      { role: "Teaching", sanc: 29, pos: 29, vac: 0 },
+      { role: "Non-teaching & support", sanc: 9, pos: 9, vac: 0 }
+    ]
+  },
+  enrolment: {
+    status: "ok",
+    summary: "308 girls, OBC-dominant",
+    categories: [
+      { l: "SC", v: "45" },
+      { l: "ST", v: "18" },
+      { l: "OBC", v: "241" },
+      { l: "Minority", v: "1" },
+      { l: "Other", v: "—" }
+    ],
+    bullets: [
+      "<b>Total enrolment:</b> 308 girls across Grades 5–10: Primary 75, Upper Primary 77 (up to Grade 8), Secondary 156. No Sr. Secondary offered yet.",
+      "<b>OBC-dominant:</b> 241 of 308 students (78%) are OBC — consistent with the BC society mandate.",
+      "<b>Catchment:</b> Data not available — to be supplemented on follow-up visit.",
+      "<b>School runs to Grade 10 only:</b> No Grades 11–12 currently; students must transition elsewhere for intermediate education."
+    ]
+  },
+  wellbeing: {
+    status: "warn",
+    summary: "Nurse present; no counsellor",
+    bullets: [
+      "<b>Full-time nurse:</b> 1 nurse in post; no dedicated medical room available.",
+      "<b>No counsellor:</b> No school counsellor, psychologist or social worker on staff.",
+      "<b>Night supervision:</b> House masters and staff nurse responsible for hostel safety; night care teachers on structured duty schedule.",
+      "<b>Grievance channel:</b> Student grievances routed through house masters to principal.",
+      "<b>No student council:</b> No student council or prefect system recorded."
+    ],
+    programs: [
+      { l: "Full-time nurse", on: true },
+      { l: "Counselling", on: false },
+      { l: "Student council", on: false },
+      { l: "Night duty roster", on: true }
+    ]
+  },
+  governance: {
+    status: "ok",
+    summary: "SMC active; govt menu",
+    bullets: [
+      "<b>Decision-making:</b> Principal and committee jointly; SMC functional.",
+      "<b>Menu:</b> Government common menu followed; standard diet chart yes.",
+      "<b>Procurement:</b> Deputy warden, warden and staff nurse incharges manage hostel supplies.",
+      "<b>Maintenance:</b> Principal and incharge teachers responsible; dedicated maintenance staff on campus; activities logged; no annual budget noted."
+    ]
+  },
+  residential: {
+    status: "crit",
+    summary: "Kitchen absent; dining unfinished",
+    bullets: [
+      "<b>Hostel block data:</b> Number of blocks, beds and dorm rooms not recorded on form — data not available.",
+      "<b>Dining:</b> Dining hall semi-constructed; seating capacity not filled; 3 meals per day provided despite no on-campus kitchen.",
+      "<b>Sanitation:</b> 8 girls' bathrooms and 8 girls' toilets in hostel; cleaned daily; no laundry facilities.",
+      "<b>Water & power:</b> Drinking water available; reliable electricity; no generator backup; emergency lighting present.",
+      "<b>Recreation:</b> TV available; outdoor play area attached to hostel; no common room; no study hall.",
+      "<b>Biggest residential gap:</b> No kitchen, semi-constructed dining hall, and no backup power — all flagged for urgent resolution."
+    ]
+  },
+  food: {
+    status: "crit",
+    summary: "No kitchen; dining unfinished",
+    bullets: [
+      "<b>No kitchen on campus:</b> Mid-day meal kitchen absent — a critical gap for a fully residential school.",
+      "<b>Meals:</b> 3 meals provided per day; government common menu followed.",
+      "<b>Kitchen staff:</b> 1 head cook, 2 assistants, 1 kitchen cleaner, 10 meal committee members, 1 nutrition supervisor — all in post despite no dedicated kitchen space.",
+      "<b>Dining hall:</b> Semi-constructed; seating capacity not recorded; pending urgent repair work."
+    ]
+  },
+  safeguarding: {
+    status: "na",
+    summary: "Data not available",
+    bullets: [
+      "<b>Child protection policy:</b> Not captured — to be supplemented on follow-up.",
+      "<b>Background checks:</b> Not captured — to be supplemented on follow-up.",
+      "<b>Night supervision:</b> Night care teachers on duty schedule; house masters and nurse responsible for hostel safety.",
+      "<b>Grievance channel:</b> House masters route grievances to principal."
+    ]
+  },
+  girls: {
+    status: "na",
+    summary: "To be supplemented",
+    bullets: [
+      "<b>Menstrual hygiene:</b> Not captured — to be supplemented on follow-up.",
+      "<b>Campus safety:</b> Data not available on compound wall, vehicle or CCTV.",
+      "<b>Career pathways:</b> Not captured — to be supplemented on follow-up.",
+      "<b>School runs to Grade 10 only:</b> Students must transition to a different institution for Grades 11–12, a potential attrition risk point."
+    ]
+  }
 }
   ];
