@@ -954,4 +954,446 @@ window.SCHOOLS = [
   ]
 }
 ,
+  {
+  id: "sw-jajireddygudem",
+  real: true,
+  name: "TGSWRS/JC(G) Jajireddygudem",
+  society: "SW",
+  district: "Suryapet",
+  constituency: "Data not available",
+  established: "2016",
+  map: { x: 310, y: 290 },
+  realPhotos: [
+    "images/jajireddygudem-lab.jpeg",
+    "images/jajireddygudem-library.jpeg",
+    "images/jajireddygudem-classroom.jpeg",
+    "images/jajireddygudem-dining-hall-1.jpeg",
+    "images/jajireddygudem-dining-hall-2.jpeg"
+  ],
+  photos: [
+    "Science lab — tiled benches with sinks; sparse equipment",
+    "Library doubling as study hall — well-stocked shelves, student work on walls",
+    "Primary classroom — colourful wall murals, adequate desks and benches",
+    "Dining hall — bare concrete benches, no tables; students eat on the floor",
+    "Dining hall — food pots on floor; kitchen serving hatch visible; no dining furniture"
+  ],
+  metrics: {
+    enrolment: "605", teachers: "24", sanctioned: "26",
+    vacancies: "2", nonTeaching: "11",
+    gender: "Girls",
+    building: "Rented"
+  },
+  insights: [
+    "<b>Classroom-dormitory overlap:</b> 8 of 16 rooms serve as both classrooms and dormitories — a critical infrastructure gap that compromises both learning and rest.",
+    "<b>No dedicated counsellor:</b> ~10–15 students per cohort show signs of anxiety or depression; mental health support falls entirely on already-stretched teachers.",
+    "<b>Teacher overload:</b> Staff carry 8+ non-teaching duties including night study supervision, mess management, warden rotation and daily cash reporting.",
+    "<b>Safeguarding gaps:</b> No child protection policy, background check status unclear, and night supervision limited to house parents only.",
+    "<b>Strong parent trust:</b> Monthly PTMs draw over 90% attendance; parents expressed willingness to trust staff for emergency medical decisions.",
+    "<b>Retention cliff at Grade 10:</b> Dropout within school years is under 2%, but significant attrition occurs after Grade 10 as students move to private colleges perceived as stronger for JEE/NEET.",
+    "<b>Rented premises limit permanence:</b> No compound wall, no school vehicle, ambulance dependency for emergencies — significant safety and security concerns for a residential girls' school."
+  ],
+  infrastructure: {
+    status: "crit",
+    summary: "Classrooms double as dorms",
+    bullets: [
+      "<b>Campus:</b> 5-acre rented engineering college campus (rented since 2018 at ₹4,32,108/month); 1 permanent block with 4 floors.",
+      "<b>Classroom shortage:</b> 8+8 rooms currently function as classroom-cum-dormitories; 9 additional dedicated classrooms are needed.",
+      "<b>Computer lab:</b> 18 laptops present but only 4 functional; no dedicated lab space or ICT teacher.",
+      "<b>Science labs:</b> 4 labs present and observed as adequately equipped.",
+      "<b>Library:</b> Large and well-stocked; also serves as student study hall.",
+      "<b>Wi-Fi:</b> Available on campus but restricted to staff for data entry — not accessible to students.",
+      "<b>Toilets:</b> 36 functional girls' toilets; 1 staff toilet; no CWSN-accessible facilities.",
+      "<b>Maintenance:</b> Building owner responsible; 5% of monthly rent allocated. Condition rated 4/5 by principal.",
+      "<b>Biggest gap:</b> Compound wall absent; classroom-cum-dormitory arrangement flagged as the single largest infrastructure problem.",
+      "<b>No school vehicle:</b> School depends on ambulance services for medical emergencies."
+    ],
+    checklist: [
+      { item: "Classrooms",            status: "warn", v: "8 rooms (shared with dorms; 9 more needed)" },
+      { item: "Science labs",          status: "ok",   v: "4 labs, adequately equipped" },
+      { item: "Computer lab",          status: "crit", v: "18 laptops, only 4 working; no dedicated space or teacher" },
+      { item: "Smart classrooms",      status: "crit", v: "None" },
+      { item: "Library",               status: "ok",   v: "Large and well-stocked" },
+      { item: "Wi-Fi / Internet",      status: "warn", v: "Staff-only; not available to students" },
+      { item: "Drinking water",        status: "ok",   v: "Yes, RO plant" },
+      { item: "Electricity",           status: "ok",   v: "24/7 supply" },
+      { item: "Toilets",               status: "warn", v: "36 girls'; 1 staff toilet; no CWSN access" },
+      { item: "Medical / first-aid",   status: "ok",   v: "Yes, dedicated nurse on campus daily" },
+      { item: "Residential kitchen",   status: "ok",   v: "Yes, clean kitchen observed" },
+      { item: "Dining hall",           status: "warn", v: "Seats 200; students eat sitting on floor" },
+      { item: "Dormitories",           status: "crit", v: "8 rooms shared with classrooms; floor mattresses, no beds" },
+      { item: "Indoor games",          status: "na",   v: "Data not available" },
+      { item: "Outdoor sports ground", status: "crit", v: "None" },
+      { item: "Backup power",          status: "crit", v: "None" }
+    ]
+  },
+  staff: {
+    status: "warn",
+    summary: "Overloaded; warden gap",
+    mix: "Data not available",
+    bullets: [
+      "<b>Leadership:</b> Principal M. Aruna, in post 2 years; deputy principal present (SVP & JVP roles filled).",
+      "<b>Teaching strength:</b> ~24 of 26 sanctioned teaching posts filled across all levels.",
+      "<b>Key vacancies:</b> Art & Craft and Music special teacher posts vacant; IT maintenance post vacant; Maths post at secondary level unfilled.",
+      "<b>No sanctioned warden:</b> Warden responsibilities rotate among teachers, adding significantly to their non-teaching burden.",
+      "<b>Teacher duties:</b> Staff carry 8+ residential duties beyond classroom teaching — night studies (7:30–9/10pm twice weekly), holiday duties, mess supervision, caretaker rotation, daily cash and data reporting.",
+      "<b>Professional development:</b> Training includes Mental Wellbeing, Whole Child Development and Project Sampoorna; subject forums held once every 4–6 months (one day only).",
+      "<b>Teacher wishlist:</b> Dedicated full-time warden, relief from non-teaching duties, annual 2–3 day residential capacity-building programme, advanced ICT training.",
+      "<b>Motivation:</b> Teachers cited commitment to serving marginalised children; several are alumni of welfare school systems themselves."
+    ],
+    rows: [
+      { role: "Teaching", sanc: 26, pos: 24, vac: 2 },
+      { role: "Non-teaching & support", sanc: 11, pos: 10, vac: 1 }
+    ]
+  },
+  enrolment: {
+    status: "ok",
+    summary: "605 girls, SC-dominant",
+    categories: [
+      { l: "SC", v: "494" },
+      { l: "ST", v: "36" },
+      { l: "OBC", v: "68" },
+      { l: "Minority", v: "2" },
+      { l: "Other", v: "5" }
+    ],
+    bullets: [
+      "<b>Total enrolment:</b> 605 girls across Grades 5–12: Primary 76, Upper Primary 232, Secondary 158, Sr. Secondary 139.",
+      "<b>Catchment:</b> Students drawn from Kodad, Munagala, Nereducharla and Devarakonda; average travel ~60 km, maximum 80 km.",
+      "<b>Retention:</b> Dropout rate within school years is very low (1–2%); occasional early withdrawal due to homesickness or family migration.",
+      "<b>Post-Grade 10 attrition:</b> Meaningful attrition as students move to private colleges perceived as stronger for JEE/NEET; lack of COE status limits competitive exam readiness.",
+      "<b>Why parents choose this school:</b> Better educational quality, infrastructure, food hygiene, English-medium exposure and structured discipline cited by parents."
+    ]
+  },
+  wellbeing: {
+    status: "warn",
+    summary: "No counsellor; teachers fill gap",
+    bullets: [
+      "<b>Mental health load:</b> Approximately 10–15 students (within a reference cohort of ~110) show signs of anxiety or depression, primarily linked to family problems.",
+      "<b>No dedicated counsellor:</b> Mental health support is an additional duty absorbed by existing teachers; no psychologist or social worker on staff.",
+      "<b>Teacher counselling training:</b> Teachers trained twice a year (5 days at H.O.) under Project Sampoorna and Mental Wellbeing programme.",
+      "<b>Pastoral care:</b> One house parent assigned per ~40 students; warden responsibilities rotate among teachers due to vacancy.",
+      "<b>Post-vacation reorientation:</b> Students return from holidays heavily influenced by social media; reorientation takes several weeks.",
+      "<b>Phone policy:</b> Phones banned on campus; students access them only during summer vacation (2–3 months). Teachers flagged risk of technology literacy gaps for scholarships, email and digital forms.",
+      "<b>Full-time nurse:</b> One nurse on campus daily; emergencies handled by Staff Nurse and Stay Teacher; ambulance dependency for hospital transfers.",
+      "<b>Grievance channels:</b> Suggestion box and anonymous room available; student council/prefect system in place."
+    ],
+    programs: [
+      { l: "Full-time nurse", on: true },
+      { l: "Counselling", on: false },
+      { l: "Project Sampoorna", on: true },
+      { l: "Mental Wellbeing training", on: true },
+      { l: "Student council", on: true },
+      { l: "Grievance / suggestion box", on: true }
+    ]
+  },
+  governance: {
+    status: "ok",
+    summary: "SMC active; HO-guided",
+    bullets: [
+      "<b>Decision-making:</b> Academic decisions made jointly by principal and committee, with calendar and instructions from Head Office.",
+      "<b>School Management Committee:</b> Parents committee elected annually and reported as functional.",
+      "<b>Mess oversight:</b> Menu set by Head Office, Govt and Mess Committee; all teachers rotate mess duty (5 per quarter); caretaker procures via annual tenders finalised by District Collector.",
+      "<b>Integration stance:</b> Principal and senior teachers strongly support cross-society integration and advocate for students to be identified as 'Young India School students' rather than by caste category."
+    ]
+  },
+  residential: {
+    status: "crit",
+    summary: "Floor sleeping; dorm-class overlap",
+    bullets: [
+      "<b>Dormitories:</b> 8 rooms for girls (~40 students per room); hostel block rented, constructed 2009.",
+      "<b>Sleeping conditions:</b> Students sleep on floor mattresses — no beds provided.",
+      "<b>Dining conditions:</b> Dedicated dining hall seats 200; students eat sitting on the floor — no dining furniture.",
+      "<b>Sanitation:</b> 36 functional bathrooms and 36 toilets for girls; cleaned daily; manual laundry.",
+      "<b>Water & power:</b> RO drinking water; 24/7 electricity; emergency lighting in corridors and bathrooms; no generator backup.",
+      "<b>Recreation:</b> Common room, TV, outdoor play area and library/study hall all available.",
+      "<b>Biggest residential gap:</b> Classroom-cum-dormitory arrangement and absence of a compound wall near the dining hall flagged as top priorities."
+    ]
+  },
+  food: {
+    status: "ok",
+    summary: "3 meals; clean kitchen observed",
+    bullets: [
+      "<b>Meals:</b> 3 meals per day; standard menu and diet chart followed.",
+      "<b>Menu planning:</b> Head Office, Govt and Mess Committee set the menu; teachers rotate mess supervision duty.",
+      "<b>Procurement:</b> Caretaker procures groceries via tenders finalised annually by the District Collector.",
+      "<b>Kitchen condition:</b> Clean kitchen and good storage facilities observed on visit.",
+      "<b>Dining hall:</b> Seats 200; students eat on the floor — absence of dining furniture is a noted gap."
+    ]
+  },
+  academics: {
+    status: "warn",
+    summary: "No COE; tech access limited",
+    bullets: [
+      "<b>Grades offered:</b> Classes 5–12 (Primary through Sr. Secondary), all functional.",
+      "<b>COE status:</b> School does not hold COE status; limits JEE/NEET preparation and contributes to post-Grade 10 attrition.",
+      "<b>Computer access:</b> 18 laptops available but only 4 functional; no dedicated lab space or ICT teacher.",
+      "<b>Library:</b> Large, well-stocked library doubles as study hall for residential students.",
+      "<b>Night studies:</b> Revision classes held 7:30–9/10pm twice weekly, supervised by rotating teachers.",
+      "<b>Technology literacy gap:</b> Phone ban means limited digital exposure; concern about readiness for online scholarships, email and digital forms post-school."
+    ]
+  },
+  safeguarding: {
+    status: "crit",
+    summary: "No policy; supervision gaps",
+    bullets: [
+      "<b>Child protection policy:</b> No child protection policy in place at the time of visit.",
+      "<b>Background checks:</b> Whether background checks are conducted for staff was not confirmed — status unclear.",
+      "<b>Night supervision:</b> Night supervision limited to house parents only; no additional dedicated supervisory arrangement — a significant gap for a fully residential girls' school.",
+      "<b>Grievance channel:</b> Suggestion box and anonymous room available for student complaints.",
+      "<b>Compound wall:</b> Absence of a compound wall around the campus is an unresolved physical security risk."
+    ]
+  },
+  disability: {
+    status: "na",
+    summary: "Zero CWSN enrolled",
+    bullets: [
+      "<b>Current enrolment:</b> No students with disabilities (CWSN) are currently enrolled.",
+      "<b>Inclusion readiness:</b> Classrooms and dormitories share the same rooms; dining and sleeping conducted on the floor — significant physical barriers exist before inclusive enrolment is feasible.",
+      "<b>No special educator:</b> No special education teacher on staff or sanctioned."
+    ]
+  },
+  girls: {
+    status: "warn",
+    summary: "Safety & hygiene gaps",
+    bullets: [
+      "<b>Menstrual hygiene:</b> No dedicated menstrual hygiene provisions observed or reported.",
+      "<b>Campus security:</b> Absence of a compound wall is a significant safety concern for a fully residential girls' school; no school vehicle compounds emergency risk.",
+      "<b>Career pathways:</b> No gender-focused career guidance, mentorship or pathways programme in place.",
+      "<b>Positive signal:</b> Parents expressed strong trust in the school for their daughters' safety and development, noting gains in confidence and academic aspiration."
+    ]
+  },
+  parents: {
+    status: "ok",
+    summary: "High trust; strong engagement",
+    bullets: [
+      "<b>PTM attendance:</b> Monthly parent–teacher meetings attract over 90% attendance; most parents live nearby though some travel up to 80 km.",
+      "<b>Communication:</b> WhatsApp groups used for continuous updates on academics, food, attendance and student wellbeing.",
+      "<b>Trust level:</b> Parents expressed very high trust in school staff; several indicated willingness to authorise emergency medical decisions by staff.",
+      "<b>Integration views:</b> Parents strongly welcomed cross-society integration and did not support separate buildings for different societies.",
+      "<b>Observed outcomes:</b> Parents noted children becoming more disciplined, gaining confidence and developing greater interest in science and higher education.",
+      "<b>Enrolment pathways:</b> Feeder school teachers play a major role in identifying and preparing students for admission."
+    ]
+  },
+  quotes: [
+    { q: "Children should be known as Young India School students — not by their caste category.", by: "Principal" },
+    { q: "Parents trust us completely — they would let us make emergency medical decisions for their child.", by: "Teacher" },
+    { q: "We carry eight duties beyond teaching. A dedicated warden would change everything.", by: "Teacher" },
+    { q: "Students leave for private colleges after Grade 10 because they believe those schools prepare them better for JEE and NEET.", by: "Principal" }
+  ]
+},
+{
+  id: "mw-nizamabad",
+  real: true,
+  name: "TGMRS & JC Boys-2, Nizamabad",
+  society: "MW",
+  district: "Nizamabad",
+  constituency: "Nizamabad",
+  established: "2016",
+  map: { x: 220, y: 160 },
+  realPhotos: [
+    "images/nizamabad-dormitory-interior.jpeg",
+    "images/nizamabad-toilet-corridor.jpeg",
+    "images/nizamabad-dining-hall.jpeg",
+    "images/nizamabad-dormitory-block-exterior.jpeg",
+    "images/nizamabad-washroom.jpeg"
+  ],
+  photos: [
+    "Dormitory interior — rows of bunk beds; spacious room with multiple ceiling fans",
+    "Toilet block corridor — tiled walls, individual cubicle doors; clean condition observed",
+    "Dining hall — large purpose-built space with metal tables and benches; seats 250+",
+    "Dormitory Block exterior — new 2024 building with bilingual signage (English and Urdu)",
+    "Washroom block — long trough-style wash basin with individual taps; waterlogging visible on floor"
+  ],
+  metrics: {
+    enrolment: "640", teachers: "26", sanctioned: "26",
+    vacancies: "0", nonTeaching: "12",
+    gender: "Boys",
+    building: "Govt"
+  },
+  insights: [
+    "<b>Fit-for-purpose campus:</b> New building handed over in 2024 — one of the few schools visited with adequate dorm space (~20–30 students per room), a large dining hall, a playground and sufficient washrooms.",
+    "<b>CCTV overreach:</b> 140 CCTV cameras installed across campus including dormitories and bathrooms — a response to student vandalism that raises serious privacy concerns.",
+    "<b>No computer lab:</b> Despite a large, new campus with spare rooms, there is no computer lab and students receive no IT education — flagged by both students and parents as a critical gap.",
+    "<b>Hygiene not taught:</b> Boys are not instructed in personal hygiene, dorm cleanliness or laundry routines; students report skin allergies linked to unclean bedding and clothing.",
+    "<b>Washroom maintenance failure:</b> Students report waterlogging, odour and inadequate cleaning — many avoid certain toilets as a result, despite 40 being available.",
+    "<b>Strong social mobility outcomes:</b> Siblings of current students have gone on to engineering and fashion design; students are children of daily wage labourers, auto drivers and single parents.",
+    "<b>Peer discrimination reported:</b> Parents and students noted instances of bullying and discrimination against minority-community students in upper grades; school intervenes but finds it difficult to manage."
+  ],
+  infrastructure: {
+    status: "warn",
+    summary: "New building; maintenance gaps",
+    bullets: [
+      "<b>Campus:</b> Owned building, constructed 2002, new block handed over 2024; 2 blocks (academic + dormitory); 16 classrooms.",
+      "<b>Science labs:</b> 4 labs in purpose-built rooms.",
+      "<b>Computer lab:</b> No computer lab despite adequate space; no IT education — flagged by students and parents as critical.",
+      "<b>Smart classrooms:</b> Available on campus.",
+      "<b>Library:</b> Available; also functions as study hall.",
+      "<b>Wi-Fi:</b> Available on campus.",
+      "<b>Outdoor sports:</b> Large playground — one of the few schools visited with adequate outdoor space.",
+      "<b>Biggest infrastructure gap:</b> Benches, digital boards, chairs and tables still needed; 21 toilet doors broken due to student vandalism.",
+      "<b>CCTV overreach:</b> 140 cameras installed including inside dormitories and bathrooms — raises serious student privacy concerns.",
+      "<b>Maintenance:</b> Entirely on principal and teachers; no annual budget; repairs not formally logged."
+    ],
+    checklist: [
+      { item: "Classrooms",            status: "ok",   v: "16 rooms" },
+      { item: "Science labs",          status: "ok",   v: "4 labs" },
+      { item: "Computer lab",          status: "crit", v: "None — no IT education provided" },
+      { item: "Smart classrooms",      status: "ok",   v: "Available" },
+      { item: "Library",               status: "ok",   v: "Available" },
+      { item: "Wi-Fi / Internet",      status: "ok",   v: "Yes" },
+      { item: "Drinking water",        status: "ok",   v: "Yes" },
+      { item: "Electricity",           status: "warn", v: "Regular supply; scarcity in summer" },
+      { item: "Toilets",               status: "warn", v: "40 boys' toilets; waterlogging, odour and 21 broken doors reported" },
+      { item: "Medical / first-aid",   status: "ok",   v: "Yes, full-time nurse on campus" },
+      { item: "Residential kitchen",   status: "ok",   v: "Yes" },
+      { item: "Dining hall",           status: "ok",   v: "Seats 250; large hall observed" },
+      { item: "Dormitories",           status: "ok",   v: "12 rooms, ~20–30 students per room; bunk beds provided" },
+      { item: "Indoor games",          status: "ok",   v: "Yes" },
+      { item: "Outdoor sports ground", status: "ok",   v: "Large playground — adequate" },
+      { item: "Backup power",          status: "crit", v: "No generator or inverter" }
+    ]
+  },
+  staff: {
+    status: "ok",
+    summary: "Fully staffed; principal alumni",
+    mix: "Data not available",
+    bullets: [
+      "<b>Leadership:</b> Principal A. Sugukanty Reddy, in post 4 years; deputy principal present; SMC functional.",
+      "<b>Teaching strength:</b> 26 of 26 sanctioned teaching posts filled across all levels.",
+      "<b>No long-standing vacancies:</b> No subject-specific vacancies reported; some teachers handle multiple roles.",
+      "<b>Biggest staffing challenge:</b> Maintaining academic standards — cited by principal.",
+      "<b>Residential staffing:</b> Chief Warden 1 (filled), Male Warden 1 (filled), Night security 1 (filled); no house parents sanctioned.",
+      "<b>Kitchen:</b> 2 head cooks, 3 assistant cooks, 1 nutrition supervisor — all posts filled.",
+      "<b>Training:</b> Orientation programmes conducted; residential-context training confirmed; improvement identified via resource persons.",
+      "<b>Alumni leadership:</b> Principal and vice principal are both products of residential welfare school systems and cited deep personal commitment to the mission."
+    ],
+    rows: [
+      { role: "Teaching", sanc: 26, pos: 26, vac: 0 },
+      { role: "Non-teaching & support", sanc: 12, pos: 12, vac: 0 }
+    ]
+  },
+  enrolment: {
+    status: "ok",
+    summary: "640 boys, minority-dominant",
+    categories: [
+      { l: "SC", v: "40" },
+      { l: "ST", v: "23" },
+      { l: "OBC", v: "80" },
+      { l: "Minority", v: "480" },
+      { l: "Other", v: "160" }
+    ],
+    bullets: [
+      "<b>Total enrolment:</b> 640 boys across Grades 5–12: Primary 80, Upper Primary 240, Secondary 160, Sr. Secondary 160.",
+      "<b>Minority-dominant:</b> 480 of 640 students (75%) are from minority communities — consistent with the school's MW society mandate.",
+      "<b>Catchment:</b> Mix of nearby villages and very distant locations; travel times range from local to 2–6 hours, indicating a wide regional catchment.",
+      "<b>Why parents choose this school:</b> Quality education, consistent teacher presence, structured environment and English-medium exposure cited by parents.",
+      "<b>Social mobility outcomes:</b> Siblings of current students have progressed to engineering and fashion design; families are predominantly daily wage labourers, auto drivers and single parents."
+    ]
+  },
+  wellbeing: {
+    status: "warn",
+    summary: "No counsellor; hygiene gap",
+    bullets: [
+      "<b>No dedicated counsellor:</b> No school counsellor or psychologist on staff or sanctioned.",
+      "<b>Full-time nurse:</b> 1 nurse on campus; night emergencies handled by night stay teacher.",
+      "<b>Hygiene education absent:</b> Boys not taught personal hygiene, dorm cleaning or laundry routines; students reported skin allergies from unclean bedding and clothing.",
+      "<b>Washroom conditions:</b> Students report waterlogging, odour and infrequent cleaning; many avoid certain toilet blocks.",
+      "<b>Vandalism and behavioural challenges:</b> 21 bathroom doors destroyed when students are upset or frustrated; school response has been punitive surveillance rather than pastoral intervention.",
+      "<b>CCTV in dorms and bathrooms:</b> 140 cameras campus-wide including dormitories and bathrooms — a serious privacy concern potentially counterproductive to student trust.",
+      "<b>Peer discrimination:</b> Bullying and discrimination against minority-community students in upper grades reported; school intervenes but reports difficulty managing it.",
+      "<b>Grievance system:</b> Student council in place; house master/loco parentis system operational."
+    ],
+    programs: [
+      { l: "Full-time nurse", on: true },
+      { l: "Counselling", on: false },
+      { l: "Student council", on: true },
+      { l: "Hygiene education", on: false },
+      { l: "Residential context training", on: true }
+    ]
+  },
+  governance: {
+    status: "ok",
+    summary: "SMC active; HO menu system",
+    bullets: [
+      "<b>Decision-making:</b> Academic decisions by principal and committee; calendar and instructions from Head Office.",
+      "<b>SMC:</b> School Management Committee elected and functional.",
+      "<b>Menu:</b> Common diet chart from Telangana state; set per head office instructions.",
+      "<b>Procurement:</b> Warden and caretaker manage hostel supplies.",
+      "<b>Maintenance accountability:</b> Principal responsible; dedicated maintenance staff present; repair requests via head office; no annual budget; not formally logged."
+    ]
+  },
+  residential: {
+    status: "ok",
+    summary: "Spacious dorms; hygiene concerns",
+    bullets: [
+      "<b>Dormitories:</b> 12 rooms, ~20–30 students per room — significantly less crowded than most schools visited; bunk beds provided.",
+      "<b>Dining:</b> Dedicated hall seating 250; 3 meals per day; standard state menu; metal tables and benches observed.",
+      "<b>Sanitation:</b> 40 boys' bathrooms and toilets; cleaned daily; manual laundry — but waterlogging, odour and avoided units reported.",
+      "<b>Water & power:</b> Drinking water available; electricity regular but scarce in summer; no generator; emergency lighting present.",
+      "<b>Recreation:</b> Common room, TV, study hall/library, outdoor play area all available.",
+      "<b>Biggest residential gap:</b> 21 broken toilet doors and absence of hygiene education for boys."
+    ]
+  },
+  food: {
+    status: "ok",
+    summary: "3 meals; state diet chart",
+    bullets: [
+      "<b>Meals:</b> 3 meals per day; standard diet chart from Telangana state.",
+      "<b>Kitchen staff:</b> 2 head cooks, 3 assistants, 1 nutrition supervisor — all posts filled.",
+      "<b>Menu planning:</b> Set by head office; mess committee oversees.",
+      "<b>Dining hall:</b> Seats 250; large dedicated hall with metal tables and benches observed."
+    ]
+  },
+  academics: {
+    status: "warn",
+    summary: "No COE; no computer access",
+    bullets: [
+      "<b>Grades offered:</b> Classes 5–12, all functional.",
+      "<b>COE status:</b> School does not hold COE status; no competitive exam coaching or test preparation.",
+      "<b>No career counselling:</b> No structured career guidance or mentorship programme.",
+      "<b>Computer education:</b> No computer lab and no IT teaching despite sufficient space — flagged as critical by students and parents.",
+      "<b>Consistent teaching:</b> Students expressed satisfaction with learning quality, specifically noting reliable teacher presence and uninterrupted learning.",
+      "<b>New campus advantage:</b> Purpose-built 2024 block provides strong foundation if IT and remaining gaps are addressed."
+    ]
+  },
+  safeguarding: {
+    status: "warn",
+    summary: "No policy; CCTV overreach",
+    bullets: [
+      "<b>Child protection policy:</b> No formal child protection policy in place at time of visit.",
+      "<b>Background checks:</b> Confirmed as conducted for all teaching staff.",
+      "<b>Night supervision:</b> Night stay teacher/lecturer on duty; night security staff (1) in position.",
+      "<b>CCTV overreach:</b> 140 CCTV cameras including inside dormitories and bathrooms — a significant invasion of student privacy warranting urgent review.",
+      "<b>Peer discrimination:</b> Bullying and community-based discrimination among older boys reported; school intervenes but effectiveness limited.",
+      "<b>Grievance channel:</b> Student council in place; house master system operational."
+    ]
+  },
+  boys: {
+    status: "warn",
+    summary: "Hygiene gap; no pathways",
+    bullets: [
+      "<b>Hygiene education:</b> No programme to teach boys personal hygiene, dorm upkeep or laundry habits; skin allergies from unclean bedding reported — a preventable health issue.",
+      "<b>Behavioural support:</b> Vandalism (21 bathroom doors destroyed) indicates unmet emotional and behavioural support needs; current response is surveillance rather than pastoral care.",
+      "<b>No career pathways:</b> No gender-specific career guidance or mentorship despite strong social mobility outcomes visible among alumni.",
+      "<b>Peer discrimination:</b> Minority-community boys report discrimination from peers in upper grades — a specific concern given 75% of students are from minority backgrounds."
+    ]
+  },
+  parents: {
+    status: "ok",
+    summary: "High trust; mobility outcomes cited",
+    bullets: [
+      "<b>Deep engagement:</b> Extended interactions during visit; parents expressed high contentment with academic quality, teacher care and school environment.",
+      "<b>Alumni outcomes:</b> Families cited siblings in engineering and fashion design — concrete evidence of social mobility for children of daily wage labourers, auto drivers and single parents.",
+      "<b>Leadership as alumni:</b> Principal and vice principal are products of residential welfare schools and spoke with personal conviction about the mission.",
+      "<b>Hygiene concern raised:</b> Parents noted boys are not taught cleanliness routines, leading to unhygienic conditions and health impacts.",
+      "<b>Peer discrimination acknowledged:</b> Parents flagged bullying and community-based discrimination in upper grades; expressed hope school would do more.",
+      "<b>Computer gap flagged:</b> Both parents and students specifically raised absence of a computer lab as a critical missing resource."
+    ]
+  },
+  quotes: [
+    { q: "We studied in welfare schools ourselves — we know what proper education means for these children.", by: "Principal" },
+    { q: "My older child studied here and is now doing engineering. I never thought that was possible for our family.", by: "Parent" },
+    { q: "The school is big and new, but there is no computer lab. How will our children compete?", by: "Parent / Student" },
+    { q: "Boys come back from vacation and need weeks to resettle — social media changes them completely.", by: "Teacher" }
+  ]
+}
   ];
