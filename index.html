@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/d3-geo@3/dist/d3-geo.min.js"></script>
 <style>
   :root{
     --paper:#f4efe6;
@@ -64,6 +65,153 @@
   }
   .brand small{display:block;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
   .topbar .tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* ============ TABS ============ */
+  .tabs{display:flex;gap:4px;background:rgba(31,36,33,.05);padding:4px;border-radius:100px;border:1px solid var(--line)}
+  .tab{
+    background:none;border:none;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;
+    font-size:13px;font-weight:600;padding:8px 20px;border-radius:100px;
+    color:var(--ink-soft);transition:.2s;letter-spacing:.01em;white-space:nowrap;
+  }
+  .tab:hover{color:var(--ink)}
+  .tab.active{background:var(--teal);color:#fff;box-shadow:0 2px 8px rgba(13,92,84,.25)}
+  @media(max-width:620px){.topbar .tag{display:none}.brand small{display:none}}
+
+  /* ============ OVERVIEW: HERO ============ */
+  #overview .hero{padding:60px 0 26px}
+  .ov-kicker{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .ov-kicker .k-line{width:44px;height:1px;background:var(--terra)}
+  .ov-kicker .k-txt{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--terra)}
+  #overview .hero h1{
+    font-family:'Fraunces',serif;font-weight:600;font-size:clamp(40px,6.4vw,74px);line-height:1.0;
+    letter-spacing:-.02em;max-width:15ch;margin-bottom:24px;
+  }
+  #overview .hero h1 em{font-style:italic;color:var(--teal)}
+  #overview .hero .lede{font-size:18px;color:var(--ink-soft);max-width:64ch;line-height:1.6}
+
+  /* headline metric band */
+  .ov-band{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .ov-band .b{padding:26px 30px 26px 0;border-right:1px solid var(--line)}
+  .ov-band .b:last-child{border-right:none;padding-right:0}
+  .ov-band .b .n{font-family:'Fraunces',serif;font-size:clamp(38px,4.6vw,54px);font-weight:600;
+    line-height:.95;color:var(--teal-deep);letter-spacing:-.01em}
+  .ov-band .b .n em{font-style:normal;font-size:.5em;color:var(--ink-soft);font-family:'Hanken Grotesk',sans-serif;font-weight:600}
+  .ov-band .b .l{font-size:13px;color:var(--ink-soft);margin-top:12px;line-height:1.4;max-width:22ch}
+  @media(max-width:820px){.ov-band{grid-template-columns:1fr 1fr}
+    .ov-band .b{padding:22px 24px 22px 0}
+    .ov-band .b:nth-child(2){border-right:none;padding-right:0}
+    .ov-band .b:nth-child(3),.ov-band .b:nth-child(4){border-bottom:none}
+    .ov-band .b:nth-child(1),.ov-band .b:nth-child(2){border-bottom:1px solid var(--line)}
+    .ov-band .b:nth-child(3),.ov-band .b:nth-child(4){padding-top:22px}
+  }
+
+  /* ============ OVERVIEW: MAP ============ */
+  .ov-mapsec{margin:76px 0 40px}
+  .ov-mapgrid{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:stretch}
+  .ov-mapcard{
+    background:linear-gradient(160deg,#123f39,#0a2e2a 60%);color:#f4efe6;border-radius:22px;
+    padding:30px 32px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg);
+    display:flex;flex-direction:column;
+  }
+  .ov-mapcard::before{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;
+    border-radius:50%;background:radial-gradient(circle,rgba(198,146,20,.16),transparent 70%);pointer-events:none}
+  .ov-mapcard .m-kick{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .ov-mapcard h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin-bottom:20px}
+  .ov-mapwrap{flex:1;position:relative;min-height:400px}
+  .ov-mapwrap svg{width:100%;height:100%;position:absolute;inset:0}
+  .ov-district{fill:rgba(244,239,230,.05);stroke:rgba(244,239,230,.22);stroke-width:.6;transition:fill .2s}
+  .ov-state{fill:none;stroke:rgba(244,239,230,.55);stroke-width:1.4}
+  .ov-pin-hit{cursor:pointer}
+  .ov-pin-dot{transition:r .18s}
+  .ov-maploading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(244,239,230,.6);text-align:center;padding:20px}
+  .ov-legend{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:18px;
+    border-top:1px solid rgba(244,239,230,.14);padding-top:16px}
+  .ov-legend .lg{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(244,239,230,.85)}
+  .ov-legend .lg .d{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+  .ov-legend .lg b{color:#fff;font-weight:600}
+
+  /* map tooltip (HTML overlay) */
+  .ov-tooltip{position:absolute;pointer-events:none;z-index:5;background:#f4efe6;color:var(--ink);
+    border-radius:11px;padding:11px 14px;box-shadow:0 12px 34px rgba(0,0,0,.4);min-width:180px;
+    opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s}
+  .ov-tooltip.show{opacity:1;transform:translateY(0)}
+  .ov-tooltip .tt-soc{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:700;margin-bottom:4px}
+  .ov-tooltip .tt-name{font-family:'Fraunces',serif;font-size:15px;font-weight:600;line-height:1.2;margin-bottom:6px}
+  .ov-tooltip .tt-meta{font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+  .ov-tooltip .tt-meta b{color:var(--ink);font-weight:600}
+
+  /* map side rail */
+  .ov-rail{display:flex;flex-direction:column;gap:14px}
+  .ov-rail .r-card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:20px 22px;box-shadow:var(--shadow)}
+  .ov-rail .r-card .rl{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+  .ov-rail .r-list{display:flex;flex-direction:column;gap:11px}
+  .ov-rail .r-row{display:flex;align-items:center;gap:11px}
+  .ov-rail .r-row .r-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+  .ov-rail .r-row .r-nm{font-size:13.5px;font-weight:600;flex:1}
+  .ov-rail .r-row .r-ct{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+  .ov-rail .r-big{background:var(--teal-deep);color:#f4efe6;border:none}
+  .ov-rail .r-big .rl{color:var(--gold)}
+  .ov-rail .r-big .rb-n{font-family:'Fraunces',serif;font-size:40px;font-weight:600;line-height:1}
+  .ov-rail .r-big .rb-x{font-size:13px;color:rgba(244,239,230,.8);margin-top:6px;line-height:1.45}
+
+  /* ============ OVERVIEW: QUOTE ============ */
+  .ov-quote{background:var(--ink);color:var(--paper);border-radius:22px;padding:46px 52px;
+    margin:64px 0;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;
+    position:relative;overflow:hidden}
+  .ov-quote::after{content:"";position:absolute;left:-60px;bottom:-80px;width:280px;height:280px;
+    border-radius:50%;background:radial-gradient(circle,rgba(188,90,53,.22),transparent 70%)}
+  .ov-quote .mk{font-family:'Fraunces',serif;font-size:110px;line-height:.62;color:var(--terra-soft);
+    font-style:italic;flex-shrink:0}
+  .ov-quote .qt{position:relative;z-index:1}
+  .ov-quote .qt p{font-family:'Fraunces',serif;font-size:clamp(19px,2.4vw,25px);font-style:italic;
+    line-height:1.5;margin-bottom:16px;max-width:44ch}
+  .ov-quote .qt .by{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--terra-soft)}
+  @media(max-width:620px){.ov-quote{grid-template-columns:1fr;padding:32px 26px;gap:6px}
+    .ov-quote .mk{font-size:70px}}
+
+  /* ============ OVERVIEW: INSIGHTS ============ */
+  .ov-ins-head{margin:8px 0 8px}
+  .ov-ins-head h2{font-family:'Fraunces',serif;font-size:34px;font-weight:600;letter-spacing:-.015em;margin-bottom:10px}
+  .ov-ins-head p{font-size:15.5px;color:var(--ink-soft);max-width:70ch;line-height:1.6}
+  .ov-ins-list{display:flex;flex-direction:column;gap:20px;margin:34px 0 90px}
+  .ov-theme{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    box-shadow:var(--shadow);transition:box-shadow .25s,border-color .25s}
+  .ov-theme:hover{box-shadow:var(--shadow-lg)}
+  .ov-theme .th-head{display:flex;align-items:flex-start;gap:18px;padding:26px 30px;
+    border-left:5px solid transparent}
+  .ov-theme .th-ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;flex-shrink:0}
+  .ov-theme .th-ic svg{width:23px;height:23px}
+  .ov-theme .th-t{flex:1;min-width:0}
+  .ov-theme .th-t .th-eye{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
+  .ov-theme .th-t h3{font-family:'Fraunces',serif;font-size:23px;font-weight:600;line-height:1.15;letter-spacing:-.01em}
+  .ov-theme .th-t .th-sub{font-size:14.5px;color:var(--ink-soft);margin-top:7px;line-height:1.5;max-width:74ch}
+  .ov-theme .th-badge{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:6px 12px;border-radius:100px;white-space:nowrap;flex-shrink:0}
+  .ov-theme .th-badge.ok{background:var(--ok-bg);color:var(--ok)}
+  .ov-theme .th-badge.warn{background:var(--warn-bg);color:var(--warn)}
+  .ov-theme .th-badge.crit{background:var(--crit-bg);color:var(--crit)}
+  .ov-theme .th-body{padding:0 30px 28px 94px}
+  .ov-theme .th-find{display:flex;flex-direction:column;gap:16px}
+  .ov-theme .th-f{display:flex;gap:13px;align-items:flex-start}
+  .ov-theme .th-f .fm{width:8px;height:8px;border-radius:2px;transform:rotate(45deg);flex-shrink:0;margin-top:7px}
+  .ov-theme .th-f .fx{flex:1}
+  .ov-theme .th-f .fx .fh{font-size:15px;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:3px}
+  .ov-theme .th-f .fx .fd{font-size:14px;color:var(--ink-soft);line-height:1.58}
+  .ov-theme .th-f .fx .fd .ev{color:var(--teal-deep);font-weight:600}
+  @media(max-width:640px){
+    .ov-theme .th-head{padding:22px 20px;gap:14px}
+    .ov-theme .th-body{padding:0 20px 24px 20px}
+    .ov-theme .th-badge{display:none}
+  }
 
   .demo-note{
     background:var(--teal-deep);color:#f4efe6;font-size:12.5px;text-align:center;padding:7px 16px;
@@ -283,7 +431,7 @@
 <body>
 
 <div class="demo-note">
-  <b>5 field visits loaded</b> &nbsp;— Chegunta &amp; Narsapur (TW), Hayathnagar (BC), Shaikhpet (SW) and Khairatabad (MW). More schools will be added as visit data comes in.
+  <b>9 field visits loaded</b> &nbsp;— Chegunta &amp; Narsapur (TW), Hayathnagar (BC), Shaikhpet (SW) and Khairatabad (MW) and more. More schools will be added as visit data comes in.
 </div>
 
 <div class="topbar">
@@ -292,9 +440,58 @@
       <span class="mark">Y</span>
       <span>YIIRS Field Study<small>School Visit Repository</small></span>
     </div>
+    <div class="tabs">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="schools">Schools</button>
+    </div>
     <span class="tag">BCG · Telangana · 2026</span>
   </div>
 </div>
+
+<!-- =================== OVERVIEW VIEW =================== -->
+<main id="overview">
+  <section class="hero">
+    <div class="wrap">
+      <div class="ov-kicker"><span class="k-line"></span><span class="k-txt">Young India Integrated Residential Schools</span></div>
+      <h1>Nine schools, <em>one picture.</em></h1>
+      <p class="lede">Findings from field visits across all four welfare societies — Minority, Social, Tribal and Backward Classes. The residential model provides marginalised children with housing, meals and schooling from age 10 to 18. Across the visits, the recurring gaps are mostly in living conditions rather than teaching.</p>
+
+      <div class="ov-band" id="ov-band"></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="ov-mapsec">
+      <div class="ov-mapgrid">
+        <div class="ov-mapcard">
+          <div class="m-kick">Where we visited</div>
+          <h3>Nine schools across Telangana</h3>
+          <div class="ov-mapwrap" id="ov-mapwrap">
+            <div class="ov-maploading" id="ov-maploading">Loading Telangana map…</div>
+            <svg id="ov-map-svg" preserveAspectRatio="xMidYMid meet"></svg>
+            <div class="ov-tooltip" id="ov-tooltip"></div>
+          </div>
+          <div class="ov-legend" id="ov-legend"></div>
+        </div>
+        <div class="ov-rail" id="ov-rail"></div>
+      </div>
+    </section>
+
+    <div class="ov-quote">
+      <div class="mk">“</div>
+      <div class="qt">
+        <p id="ov-quote-text"></p>
+        <div class="by" id="ov-quote-by"></div>
+      </div>
+    </div>
+
+    <div class="ov-ins-head">
+      <h2>Recurring themes across the visits</h2>
+      <p>Ten themes drawn from all nine profiles, with the specific findings and the schools they came from.</p>
+    </div>
+    <div class="ov-ins-list" id="ov-ins-list"></div>
+  </div>
+</main>
 
 <!-- =================== REPOSITORY VIEW =================== -->
 <main id="repository">
@@ -305,10 +502,10 @@
       <p class="lede">A consolidated record of field visits across all four welfare societies — Minority, Social, Tribal and Backward Classes. Each profile documents the school's staffing, infrastructure, enrolment and key findings from the visit.</p>
 
       <div class="statstrip">
-        <div class="s"><div class="n" id="stat-schools">6</div><div class="l">Schools visited</div></div>
+        <div class="s"><div class="n" id="stat-schools">9</div><div class="l">Schools visited</div></div>
         <div class="s"><div class="n">4</div><div class="l">Welfare societies covered</div></div>
-        <div class="s"><div class="n" id="stat-districts">6</div><div class="l">Districts</div></div>
-        <div class="s"><div class="n">55</div><div class="l">Stakeholder consultations (teachers &amp; school leaders)</div></div>
+        <div class="s"><div class="n" id="stat-districts">6 of 7</div><div class="l">Zones covered</div></div>
+        <div class="s"><div class="n">100+</div><div class="l">Stakeholder consultations (teachers, school leaders &amp; students)</div></div>
       </div>
     </div>
   </section>
@@ -619,6 +816,298 @@ function closeProfile(){
 document.getElementById('stat-schools').textContent=SCHOOLS.length;
 document.getElementById('stat-districts').textContent=new Set(SCHOOLS.map(s=>s.district)).size;
 document.getElementById('visit-count').textContent=`// ${SCHOOLS.length} of ~15 planned`;
+
+/* ============================================================
+   OVERVIEW TAB
+   ============================================================ */
+
+/* --- Real geographic coordinates for each school ---
+   Format is [longitude, latitude].
+   Six are confirmed from the source Excel sheets. The three Tribal Welfare
+   (TGTWREIS) schools had no lat/long in the uploaded data, so they use
+   accurate town-level coordinates as a stand-in — marked "approx" below.
+   Replace any pair with exact coordinates when available. */
+const COORDS = {
+  "bc-hayathnagar":   [78.617194, 17.308594],  // confirmed — BCWREIS sheet
+  "sw-shaikhpet":     [78.390843, 17.405988],  // confirmed — TGSWREIS sheet
+  "mw-khairatabad":   [78.284600, 17.235200],  // confirmed — TMREIS sheet (Khairtabad G-1)
+  "sw-jajireddygudem":[79.623900, 17.143900],  // confirmed — TGSWREIS sheet
+  "mw-nizamabad":     [78.056495, 18.680540],  // confirmed — TMREIS sheet (Nizamabad B-2)
+  "bc-kodair":        [78.283954, 16.267238],  // confirmed — BCWREIS sheet
+  "tw-narsapur":      [78.277000, 17.721500],  // approx — Narsapur town (no lat/long in TW data)
+  "tw-chegunta":      [78.340000, 17.872000],  // approx — Chegunta town (no lat/long in TW data)
+  "tw-hanamkonda":    [79.558300, 18.010600]   // approx — Hanamkonda town (no lat/long in TW data)
+};
+
+/* Which pins are approximate (renders a hollow ring + note in the tooltip) */
+const COORDS_APPROX = { "tw-narsapur":1, "tw-chegunta":1, "tw-hanamkonda":1 };
+
+/* Featured student/teacher voice */
+const OV_QUOTE = {
+  text:"The residential staff and the teaching staff should be different — with night duty like this, we simply can't focus on academics.",
+  by:"Teacher, BC girls' residential school"
+};
+
+/* --- L3 cross-school insights, synthesised from all nine profiles ---
+   status: "ok" | "warn" | "crit"; icon key maps to ICONS{} in the profile code. */
+const INSIGHTS=[
+  {cat:"Residential capacity & bedding",icon:"res",color:"#b23b2e",status:"crit",
+   sub:"The most common gap across the schools visited: dormitories are overcrowded and bedding is often inadequate.",
+   find:[
+    {h:"Dormitories are overcrowded at most schools",d:"Hayathnagar has <span class='ev'>about 30 girls in rooms built for around 10</span>. Shaikhpet and Narsapur run roughly 30 and 25 per dorm. Chegunta (~20) and Nizamabad (~20–30) are less crowded."},
+    {h:"Many students sleep without proper beds or mattresses",d:"At Hayathnagar, <span class='ev'>5–7 girls sleep on the floor each day</span> for lack of beds. Khairatabad and Jajireddygudem provide only a thin sheet or floor mattress. Chegunta issues no mattresses — girls bring their own from home."},
+    {h:"Some dormitories double as classrooms",d:"Jajireddygudem uses <span class='ev'>8+8 rooms as combined classroom-dormitories</span>. At Hanamkonda, girls sleep and study in the same room, with no separate study hall."},
+   ]},
+  {cat:"Sanitation & water",icon:"infra",color:"#b23b2e",status:"crit",
+   sub:"Toilets are too few for the number of students, and water supply is unreliable at several schools.",
+   find:[
+    {h:"Too few toilets for the number of students",d:"Hayathnagar has <span class='ev'>8–9 washrooms for 1,200+ girls</span>. At Khairatabad, senior girls wake at 3:30 AM to bathe before the juniors; Hanamkonda assigns bathing by class time-slot."},
+    {h:"Water supply is a frequent complaint",d:"Hanamkonda students report <span class='ev'>insufficient overhead-tank water</span> as their main daily issue. Kodair and Narsapur list sanitation blocks as pending work."},
+    {h:"Broken facilities are left unrepaired",d:"Nizamabad has <span class='ev'>21 broken toilet doors</span>, and boys report waterlogging and odour. Several schools have no laundry facility, so students hand-wash in bathrooms."},
+   ]},
+  {cat:"Heat, power & comfort",icon:"infra",color:"#c69214",status:"warn",
+   sub:"Most schools have no power backup, and fans-only cooling makes summers difficult.",
+   find:[
+    {h:"Most schools have no power backup",d:"Hayathnagar, Shaikhpet, Chegunta, Jajireddygudem, Nizamabad and Kodair <span class='ev'>have no generator</span>, so when power fails there is no backup."},
+    {h:"Cooling is limited to fans",d:"At Shaikhpet, boys push bunks together to sleep near the ceiling fan. Khairatabad has <span class='ev'>wall fans only</span>, so students in the middle of the room get little airflow."},
+    {h:"Limited seating and recreation space",d:"Hanamkonda students <span class='ev'>sit on the floor during the school day</span> — no desks or chairs. Most schools have no indoor common or study room."},
+   ]},
+  {cat:"Child protection & safeguarding",icon:"safe",color:"#b23b2e",status:"crit",
+   sub:"No school visited has a formal child-protection policy or safeguarding training in place.",
+   find:[
+    {h:"No formal child-protection policy at any school",d:"None of the nine schools has a <span class='ev'>written safeguarding or POCSO framework</span>. Some could not confirm whether one exists."},
+    {h:"No safeguarding training for staff",d:"Across all schools, teachers receive <span class='ev'>no child-safeguarding training</span>, despite being the main overnight supervision."},
+    {h:"Thin night supervision",d:"Hayathnagar has <span class='ev'>2 teachers and 1 health in-charge overnight for ~1,240 girls</span>; Shaikhpet has 2 teachers for 646 boys. Nizamabad installed 140 cameras, including in dormitories and bathrooms — a privacy concern."},
+   ]},
+  {cat:"Mental health & counselling",icon:"well",color:"#b23b2e",status:"crit",
+   sub:"Most schools focus on physical health; dedicated mental-health support is largely absent.",
+   find:[
+    {h:"Few schools have a trained counsellor",d:"Only Hanamkonda lists dedicated counsellors. At other schools the role is <span class='ev'>handled by an art teacher, health supervisor or class teacher</span> with no clinical training."},
+    {h:"Homesickness and exam pressure are common",d:"Teachers report many students <span class='ev'>want to leave in the first few months</span>. Jajireddygudem estimates 10–15% of a cohort show signs of anxiety or depression, mostly family-related."},
+    {h:"Health staff are stretched and untrained for crises",d:"Hayathnagar's nurses see <span class='ev'>30–40 girls a day for 1,280 students</span>, with no crisis or gatekeeper training. Several schools have no counsellor or confidential channel."},
+   ]},
+  {cat:"Staffing & residential duty",icon:"staff",color:"#c69214",status:"warn",
+   sub:"Teachers cover both teaching and warden duties, as most schools have no dedicated residential staff.",
+   find:[
+    {h:"The warden post is usually unfilled",d:"Hayathnagar, Jajireddygudem, Hanamkonda and Kodair rotate warden duty among teachers. <span class='ev'>Data entry alone takes 2–3 hours a day</span>, and teachers say it leads to missed or under-prepared classes."},
+    {h:"Night duty keeps teachers on campus for long stretches",d:"At Hayathnagar, a teacher on night duty <span class='ev'>stays from morning through the night to the next afternoon</span>. Teachers said residential and teaching should be separate roles."},
+    {h:"No staff quarters and long commutes at most schools",d:"Only Shaikhpet has staff quarters. Elsewhere, <span class='ev'>about 20 teachers commute 20–30 km home at 9 PM</span>. Principals report teachers leaving quickly due to the workload."},
+   ]},
+  {cat:"Academics & the COE divide",icon:"acad",color:"#c69214",status:"warn",
+   sub:"There is a clear gap between Centre-of-Excellence schools and the rest, and outcome tracking is limited.",
+   find:[
+    {h:"COE status affects the level of academic support",d:"Shaikhpet runs an intensive NEET/EAMCET track with subject experts. <span class='ev'>Jajireddygudem, Nizamabad and Hanamkonda have no COE status</span>, which limits competitive-exam preparation."},
+    {h:"Outcomes are tracked by marks, not by topic",d:"Hayathnagar records <span class='ev'>subject marks but not topic-level mastery</span>, so staff can see a student is weak in maths but not which concepts she missed."},
+    {h:"Narrow streams and limited career guidance",d:"Hanamkonda offers science only (100% Class-10 pass rate). Career support is usually a <span class='ev'>single poster or a rotating visitor</span>; BC Welfare's alumni network is one exception."},
+   ]},
+  {cat:"Digital access & technology",icon:"acad",color:"#c69214",status:"warn",
+   sub:"Computers and smart-class hardware are often present but not usable, due to missing staff or training.",
+   find:[
+    {h:"Computer labs often don't function",d:"Chegunta's IT post has been <span class='ev'>vacant since a resignation</span>; Jajireddygudem has 18 laptops but only 4 working; Nizamabad has space but no lab, flagged by students and parents."},
+    {h:"Smart-class hardware is underused",d:"TVs and panels at Hayathnagar, Shaikhpet and Narsapur are used informally for video clips because <span class='ev'>teachers get no training to use them</span>."},
+    {h:"Phone bans limit digital skills",d:"Jajireddygudem teachers note students are <span class='ev'>unprepared for online scholarships, email and forms</span>. Hayathnagar allows no devices at all."},
+   ]},
+  {cat:"Food & nutrition",icon:"food",color:"#2f7d4f",status:"ok",
+   sub:"A relative strength: menus are state-planned and consumption is tracked closely, though dining conditions vary.",
+   find:[
+    {h:"Menus and tracking are well-organised",d:"State-planned menus, district-committee procurement and <span class='ev'>HMS tracking per child</span> are in place; non-veg meals about six times a month at most schools."},
+    {h:"Dining conditions are uneven",d:"Shaikhpet's dining hall is small and poorly lit; Jajireddygudem students <span class='ev'>eat sitting on the floor</span>. Kodair has no kitchen on campus and a semi-built dining hall."},
+   ]},
+  {cat:"Family contact",icon:"parents",color:"#c69214",status:"warn",
+   sub:"Students have limited contact with family during long stays, though parents trust the schools.",
+   find:[
+    {h:"Contact is usually one monthly visit",d:"Hayathnagar allows a <span class='ev'>monthly Saturday visit</span>; with no devices, a student who needs to call home must find a house parent."},
+    {h:"Parents choose the schools mainly for security",d:"Families, many daily-wage labourers, value that a child is <span class='ev'>housed, fed and schooled from age 10 to 18</span>. Trust in the schools is high."},
+    {h:"Leaders express high satisfaction with the model",d:"Staff at several schools <span class='ev'>feel the system works well and would change little</span>, which can limit discussion of improvements."},
+   ]},
+];
+
+const OV_STATUS={ok:{l:"Strength"},warn:{l:"Needs attention"},crit:{l:"Critical gap"}};
+
+/* ---------- headline band ---------- */
+function renderOvBand(){
+  const societies=new Set(SCHOOLS.map(s=>s.society)).size;
+  const districts=new Set(SCHOOLS.map(s=>s.district)).size;
+  const totalEnrol=SCHOOLS.reduce((a,s)=>a+(parseInt(String(s.metrics.enrolment).replace(/,/g,''))||0),0);
+  const crit=INSIGHTS.filter(i=>i.status==='crit').length;
+  document.getElementById('ov-band').innerHTML=`
+    <div class="b"><div class="n">${SCHOOLS.length}</div><div class="l">schools visited across ${districts} districts</div></div>
+    <div class="b"><div class="n">${societies}<em> / 4</em></div><div class="l">welfare societies covered</div></div>
+    <div class="b"><div class="n">${(totalEnrol/1000).toFixed(1)}<em>k</em></div><div class="l">children in residence, ages ~10–18</div></div>
+    <div class="b"><div class="n">${crit}</div><div class="l">themes flagged critical across the system</div></div>`;
+}
+
+/* ---------- real geographic map (D3) ---------- */
+function renderOvMap(){
+  const svg=document.getElementById('ov-map-svg');
+  const wrap=document.getElementById('ov-mapwrap');
+  const tip=document.getElementById('ov-tooltip');
+  const loading=document.getElementById('ov-maploading');
+
+  const W=wrap.clientWidth||520, H=Math.max(wrap.clientHeight,400);
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+
+  function drawPinsOnly(){
+    // Fallback: no basemap, just place pins on a neutral field using a local projection
+    const lons=Object.values(COORDS).map(c=>c[0]), lats=Object.values(COORDS).map(c=>c[1]);
+    const minx=Math.min(...lons)-.3,maxx=Math.max(...lons)+.3,miny=Math.min(...lats)-.3,maxy=Math.max(...lats)+.3;
+    const px=lo=>((lo-minx)/(maxx-minx))*(W-80)+40;
+    const py=la=>H-(((la-miny)/(maxy-miny))*(H-80)+40);
+    svg.innerHTML=`<rect x="8" y="8" width="${W-16}" height="${H-16}" rx="14" fill="rgba(244,239,230,.04)" stroke="rgba(244,239,230,.14)" stroke-width="1"/>`;
+    placePins((lng,lat)=>[px(lng),py(lat)]);
+    loading.innerHTML='School locations (map basemap unavailable offline)';
+    loading.style.bottom='10px';loading.style.top='auto';loading.style.fontSize='10px';
+    loading.style.display='block';
+  }
+
+  function placePins(project){
+    let pinsHtml='';
+    SCHOOLS.forEach((s,i)=>{
+      const c=COORDS[s.id]; if(!c)return;
+      const [x,y]=project(c[0],c[1]);
+      const soc=SOCIETIES[s.society]||{color:'#0d5c54'};
+      const approx=COORDS_APPROX[s.id];
+      if(approx){
+        // hollow ring = approximate location
+        pinsHtml+=`<g class="ov-pin-hit" data-i="${i}" data-x="${x}" data-y="${y}">
+          <circle cx="${x}" cy="${y+1.5}" r="7" fill="rgba(0,0,0,.28)"/>
+          <circle class="ov-pin-dot" cx="${x}" cy="${y}" r="7" fill="rgba(244,239,230,.15)" stroke="${soc.color}" stroke-width="2.4" stroke-dasharray="2.4 2"/>
+        </g>`;
+      }else{
+        pinsHtml+=`<g class="ov-pin-hit" data-i="${i}" data-x="${x}" data-y="${y}">
+          <circle cx="${x}" cy="${y+1.5}" r="7" fill="rgba(0,0,0,.35)"/>
+          <circle class="ov-pin-dot" cx="${x}" cy="${y}" r="7" fill="${soc.color}" stroke="#f4efe6" stroke-width="2"/>
+          <circle cx="${x}" cy="${y}" r="2.6" fill="#f4efe6"/>
+        </g>`;
+      }
+    });
+    svg.insertAdjacentHTML('beforeend',pinsHtml);
+    svg.querySelectorAll('.ov-pin-hit').forEach(g=>{
+      const s=SCHOOLS[+g.dataset.i], soc=SOCIETIES[s.society]||{color:'#0d5c54',name:''};
+      const dot=g.querySelector('.ov-pin-dot');
+      const approx=COORDS_APPROX[s.id];
+      g.addEventListener('mouseenter',()=>{
+        dot.setAttribute('r','10');
+        tip.innerHTML=`<div class="tt-soc" style="color:${soc.color}">${soc.name}</div>
+          <div class="tt-name">${s.name}</div>
+          <div class="tt-meta"><b>${s.district}</b> · ${s.metrics.gender} · ${s.metrics.building}<br>
+          <b>${s.metrics.enrolment}</b> students · <b>${s.metrics.vacancies}</b> teacher vacancies${approx?`<br><span style="color:var(--terra);font-style:italic">Approx. location — town-level</span>`:''}</div>`;
+        const x=+g.dataset.x, y=+g.dataset.y;
+        let tx=x+16, ty=y-10;
+        if(tx>W-180)tx=x-196;
+        tip.style.left=tx+'px';tip.style.top=Math.max(4,ty)+'px';
+        tip.classList.add('show');
+      });
+      g.addEventListener('mouseleave',()=>{dot.setAttribute('r','7');tip.classList.remove('show');});
+      g.addEventListener('click',()=>{switchTab('schools');setTimeout(()=>openProfile(s.id),60);});
+    });
+  }
+
+  // Try to load a real Telangana district basemap; fall back to pins-only.
+  const GEO_URL="https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@ef25ebc/geojson/states/telangana.geojson";
+  if(typeof d3==='undefined'||!d3.geoMercator){ drawPinsOnly(); return; }
+  let settled=false;
+  const done=()=>{settled=true;};
+  // safety timeout: if the map hasn't loaded in 6s, draw pins on a plain field
+  setTimeout(()=>{ if(!settled){ settled=true; svg.innerHTML=''; drawPinsOnly(); } },6000);
+  fetch(GEO_URL).then(r=>{if(!r.ok)throw 0;return r.json();}).then(geo=>{
+    if(settled)return; done();
+    const proj=d3.geoMercator().fitExtent([[24,20],[W-24,H-20]],geo);
+    const path=d3.geoPath(proj);
+    let dHtml='';
+    (geo.features||[]).forEach(f=>{const d=path(f);if(d)dHtml+=`<path class="ov-district" d="${d}"/>`;});
+    svg.innerHTML=dHtml;
+    placePins((lng,lat)=>proj([lng,lat]));
+    loading.style.display='none';
+  }).catch(()=>{ if(settled)return; done(); svg.innerHTML=''; drawPinsOnly(); });
+}
+
+/* ---------- map legend + side rail ---------- */
+function renderOvRail(){
+  document.getElementById('ov-legend').innerHTML=Object.entries(SOCIETIES).map(([k,v])=>{
+    const n=SCHOOLS.filter(s=>s.society===k).length;
+    return n?`<span class="lg"><span class="d" style="background:${v.color}"></span><b>${v.name}</b> (${n})</span>`:'';
+  }).join('')+`<span class="lg"><span class="d" style="background:transparent;border:2px dashed rgba(244,239,230,.6)"></span><span>approx. location</span></span>`;
+
+  const totalVac=SCHOOLS.reduce((a,s)=>a+(parseInt(s.metrics.vacancies)||0),0);
+  const totalTeach=SCHOOLS.reduce((a,s)=>a+(parseInt(s.metrics.teachers)||0),0);
+  const vacRate=(totalTeach+totalVac)>0?Math.round(totalVac/(totalTeach+totalVac)*100):0;
+
+  const rail=document.getElementById('ov-rail');
+  const bySociety=Object.entries(SOCIETIES).map(([k,v])=>{
+    const n=SCHOOLS.filter(s=>s.society===k).length;
+    return n?`<div class="r-row"><span class="r-dot" style="background:${v.color}"></span><span class="r-nm">${v.name}</span><span class="r-ct">${n} school${n>1?'s':''}</span></div>`:'';
+  }).join('');
+
+  rail.innerHTML=`
+    <div class="r-card r-big">
+      <div class="rl">The headline finding</div>
+      <div class="rb-n">7 of 9</div>
+      <div class="rb-x">schools have <b>critical residential or sanitation gaps</b> — overcrowded dorms, floor sleeping, or too few toilets.</div>
+    </div>
+    <div class="r-card">
+      <div class="rl">By welfare society</div>
+      <div class="r-list">${bySociety}</div>
+    </div>
+    <div class="r-card">
+      <div class="rl">The system-wide gap</div>
+      <div class="r-list">
+        <div class="r-row"><span class="r-dot" style="background:var(--crit)"></span><span class="r-nm">Child-protection policy</span><span class="r-ct">0 of 9</span></div>
+        <div class="r-row"><span class="r-dot" style="background:var(--crit)"></span><span class="r-nm">Trained counsellor</span><span class="r-ct">1 of 9</span></div>
+        <div class="r-row"><span class="r-dot" style="background:var(--warn)"></span><span class="r-nm">Dedicated warden</span><span class="r-ct">rare</span></div>
+        <div class="r-row"><span class="r-dot" style="background:var(--warn)"></span><span class="r-nm">Power backup</span><span class="r-ct">few</span></div>
+      </div>
+    </div>`;
+}
+
+/* ---------- quote + insights ---------- */
+function renderOvInsights(){
+  document.getElementById('ov-quote-text').textContent=OV_QUOTE.text;
+  document.getElementById('ov-quote-by').textContent='— '+OV_QUOTE.by;
+
+  document.getElementById('ov-ins-list').innerHTML=INSIGHTS.map(ins=>`
+    <div class="ov-theme">
+      <div class="th-head" style="border-left-color:${ins.color}">
+        <div class="th-ic" style="background:${ins.color}1a">
+          <svg viewBox="0 0 24 24" fill="none" stroke="${ins.color}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICONS[ins.icon]||ICONS.infra}</svg>
+        </div>
+        <div class="th-t">
+          <div class="th-eye">${OV_STATUS[ins.status].l}</div>
+          <h3>${ins.cat}</h3>
+          <div class="th-sub">${ins.sub}</div>
+        </div>
+        <span class="th-badge ${ins.status}">${statusLabel(ins.status)}</span>
+      </div>
+      <div class="th-body">
+        <div class="th-find">
+          ${ins.find.map(f=>`<div class="th-f"><span class="fm" style="background:${ins.color}"></span>
+            <div class="fx"><div class="fh">${f.h}</div><div class="fd">${f.d}</div></div></div>`).join('')}
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function renderOverview(){
+  renderOvBand();
+  renderOvRail();
+  renderOvInsights();
+  renderOvMap();
+}
+
+/* ---------- tab switching ---------- */
+function switchTab(name){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));
+  document.getElementById('overview').style.display=name==='overview'?'block':'none';
+  if(name==='schools'){ document.getElementById('profile').style.display='none'; repoView.style.display='block'; }
+  else { repoView.style.display='none'; document.getElementById('profile').style.display='none'; }
+  window.scrollTo({top:0,behavior:'instant'in window?'instant':'auto'});
+}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>switchTab(t.dataset.tab));
+
+/* start on Overview */
+repoView.style.display='none';
+renderOverview();
+window.addEventListener('resize',()=>{ if(document.getElementById('overview').style.display!=='none'){ const s=document.getElementById('ov-map-svg'); s.innerHTML=''; renderOvMap(); }});
 
 renderFilters();
 renderGrid();
