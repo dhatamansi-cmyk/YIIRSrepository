@@ -1396,7 +1396,7 @@ window.SCHOOLS = [
     { q: "Boys come back from vacation and need weeks to resettle — social media changes them completely.", by: "Teacher" }
   ]
 }
-  {
+{
   id: "tw-hanamkonda",
   real: true,
   name: "TGTWUR JC(G) Hanamkonda",
