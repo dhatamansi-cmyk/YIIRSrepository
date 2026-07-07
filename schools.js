@@ -1395,7 +1395,7 @@ window.SCHOOLS = [
     { q: "The school is big and new, but there is no computer lab. How will our children compete?", by: "Parent / Student" },
     { q: "Boys come back from vacation and need weeks to resettle — social media changes them completely.", by: "Teacher" }
   ]
-}
+},
 {
   id: "tw-hanamkonda",
   real: true,
